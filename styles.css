@@ -1058,6 +1058,66 @@ body[data-nav="open"] .nav-menu {
   color: var(--color-sheet-close-inv-icon);
 }
 
+/* =============================================
+   Tema year2023 — Case #2: Feedback in app
+   Header: #103214 | Accent: #B0FFB5
+   ============================================= */
+.case-sheet--year2023 .case-sheet__header {
+  background-color: #103214;
+}
+
+.case-sheet--year2023 .case-sheet__title,
+.case-sheet--year2023 .case-sheet__year {
+  color: #B0FFB5;
+}
+
+.case-sheet--year2023 .case-sheet__info-bar {
+  background-color: #B0FFB5;
+}
+
+.case-sheet--year2023 .case-sheet__info-label,
+.case-sheet--year2023 .case-sheet__info-value {
+  color: #103214;
+}
+
+/* Botão fechar sobre o header verde: bg accent, ícone dark */
+.case-sheet--year2023 .case-sheet__close {
+  background: #B0FFB5;
+  color: #103214;
+}
+
+/* Botão fechar sobre a área cream: inverte para dark green */
+.case-sheet--year2023 .case-sheet__close--inverted {
+  background: #103214;
+  color: #B0FFB5;
+}
+
+/* =============================================
+   Case #2 — Product demo: vídeo sobreposto no mockup do phone
+   Coordenadas calculadas do Figma (frame 1301×697):
+     "Feedback in app 1" rect: x=33.83 y=65.13 w=279.97 h=581.93
+   ============================================= */
+.case2-demo-wrapper {
+  position: relative;
+  display: block;
+  line-height: 0; /* remove gap abaixo da img */
+}
+
+.case2-demo-wrapper img {
+  width: 100%;
+  display: block;
+}
+
+.case2-phone-video {
+  position: absolute;
+  left:   2.61%;   /* pixel 34 / 1301 */
+  top:    9.47%;   /* pixel 66 / 697  */
+  width:  21.37%;  /* pixel 278 / 1301 */
+  height: 83.21%;  /* pixel 580 / 697  */
+  object-fit: cover;
+  pointer-events: none;
+}
+
 /* Linha título + year — Figma: padding 0 30px 54px 30px, gap 15px, align flex-end */
 .case-sheet__title-area {
   display: flex;
@@ -1294,9 +1354,10 @@ body[data-nav="open"] .nav-menu {
   padding: 50px 0 50px;
 }
 
-/* Media (img e video) dentro de demo: full-width */
+/* Media (img e video) dentro de demo: full-width
+   Exclui .case2-phone-video que tem posicionamento próprio */
 .case-sheet__demo img,
-.case-sheet__demo video {
+.case-sheet__demo video:not(.case2-phone-video) {
   width: 100%;
   display: block;
   object-fit: cover;
@@ -1316,6 +1377,11 @@ body[data-nav="open"] .nav-menu {
 /* Screenshots do processo: full-width SVG */
 .case-sheet__screenshots {
   padding: 50px 0 50px;
+}
+
+/* Variante para imagens com padding transparente embutido (ex: case2-screenshots.png) */
+.case-sheet__screenshots--no-pad {
+  padding: 0;
 }
 
 .case-sheet__screenshots img {

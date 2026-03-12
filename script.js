@@ -35,8 +35,9 @@
          e ser acessível pelo módulo do case sheet (instanciado mais abaixo).
 ============================================ */
 
-// Instância secundária para o case sheet — declarada aqui para o RAF ter acesso
-let lenisCaseSheet = null;
+// Instâncias secundárias para os case sheets — declaradas aqui para o RAF ter acesso
+let lenisCaseSheet  = null;  // Case #1: CRM (year2022)
+let lenisCaseSheet2 = null;  // Case #2: Feedback in app (year2023)
 
 // Instância principal do scroll da home page
 const lenis = new Lenis({
@@ -54,7 +55,8 @@ const lenis = new Lenis({
  */
 function raf(time) {
   lenis.raf(time);
-  if (lenisCaseSheet) lenisCaseSheet.raf(time);
+  if (lenisCaseSheet)  lenisCaseSheet.raf(time);
+  if (lenisCaseSheet2) lenisCaseSheet2.raf(time);
   requestAnimationFrame(raf);
 }
 
@@ -642,6 +644,100 @@ document.addEventListener('DOMContentLoaded', () => {
   // Fechar via ESC
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && isSheetOpen) closeSheet();
+  });
+
+});
+
+
+/* ============================================
+   MÓDULO 10: Case Study Bottom Sheet — Case #2
+   "Feedback in app: efficiency with AI" (year2023)
+
+   Mesmo padrão do Módulo 9, com:
+     #caseSheet2        — container do painel
+     #caseSheet2Close   — botão fechar
+     .project-item[data-theme="year2023"] — dispara abertura
+     lenisCaseSheet2    — Lenis secundário para scroll interno
+============================================ */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  const caseSheet2      = document.getElementById('caseSheet2');
+  const caseSheet2Close = document.getElementById('caseSheet2Close');
+  const aiProject       = document.querySelector('.project-item[data-theme="year2023"]');
+
+  if (!caseSheet2 || !aiProject) return;
+
+  const sheet2Scroll        = caseSheet2.querySelector('.case-sheet__scroll');
+  const sheet2ScrollContent = caseSheet2.querySelector('.case-sheet__scroll-content');
+  const sheet2Header        = caseSheet2.querySelector('.case-sheet__header');
+
+  lenisCaseSheet2 = new Lenis({
+    wrapper:            sheet2Scroll,
+    content:            sheet2ScrollContent,
+    lerp:               0.1,
+    wheelMultiplier:    0.7,
+    gestureOrientation: 'vertical',
+    normalizeWheel:     false,
+    smoothTouch:        false
+  });
+
+  lenisCaseSheet2.stop();
+
+  let isSheet2Open = false;
+  let isAnimating2 = false;
+
+  function openSheet2() {
+    if (isAnimating2 || isSheet2Open) return;
+    isAnimating2 = true;
+    isSheet2Open = true;
+
+    caseSheet2.setAttribute('aria-hidden', 'false');
+    lenis.stop();
+    lenisCaseSheet2.start();
+
+    gsap.to(caseSheet2, {
+      y:        0,
+      duration: 0.8,
+      ease:     'expo.out',
+      onComplete: () => { isAnimating2 = false; }
+    });
+  }
+
+  function closeSheet2() {
+    if (isAnimating2 || !isSheet2Open) return;
+    isAnimating2 = true;
+    isSheet2Open = false;
+
+    gsap.to(caseSheet2, {
+      y:        '100%',
+      duration: 0.65,
+      ease:     'expo.in',
+      onComplete: () => {
+        caseSheet2.setAttribute('aria-hidden', 'true');
+        lenisCaseSheet2.stop();
+        lenisCaseSheet2.scrollTo(0, { immediate: true });
+        caseSheet2Close.classList.remove('case-sheet__close--inverted');
+        lenis.start();
+        isAnimating2 = false;
+      }
+    });
+  }
+
+  lenisCaseSheet2.on('scroll', ({ scroll }) => {
+    const threshold = sheet2Header.offsetHeight - 55;
+    if (scroll >= threshold) {
+      caseSheet2Close.classList.add('case-sheet__close--inverted');
+    } else {
+      caseSheet2Close.classList.remove('case-sheet__close--inverted');
+    }
+  });
+
+  aiProject.addEventListener('click', openSheet2);
+  caseSheet2Close.addEventListener('click', closeSheet2);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isSheet2Open) closeSheet2();
   });
 
 });

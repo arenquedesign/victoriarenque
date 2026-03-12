@@ -1,0 +1,2311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System & Specs — Victoria Arenque Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Roboto:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --cream: #FFFEF8;
+      --navy: #12152A;
+      --muted: #666666;
+      --sheet-blue: #A5C7EA;
+      --body-text: #333333;
+      --caption: #494949;
+      --terracota: #813321;
+      --verde-escuro: #103214;
+      --azul-escuro: #101630;
+      --accent-terracota: #F7E9D0;
+      --accent-verde: #B0FFB5;
+      --accent-azul: #A5C7EA;
+
+      --font-display: 'Oswald', sans-serif;
+      --font-body: 'Roboto', sans-serif;
+      --font-ui: 'Inter', sans-serif;
+
+      --container-padding: 80px;
+      --section-gap: 120px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--cream);
+      color: var(--navy);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ─── LAYOUT ─── */
+
+    .page-wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--container-padding);
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background-color: var(--navy);
+      opacity: 0.15;
+      margin: 0;
+    }
+
+    .divider--full {
+      opacity: 0.12;
+    }
+
+    /* ─── COVER ─── */
+
+    .cover {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px var(--container-padding) 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      border: 1px solid rgba(18, 21, 42, 0.06);
+      pointer-events: none;
+    }
+
+    .cover::after {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      border: 1px solid rgba(18, 21, 42, 0.06);
+      pointer-events: none;
+    }
+
+    .cover-eyebrow {
+      font-family: var(--font-ui);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .cover-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    .cover-subtitle {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 60px;
+    }
+
+    .cover-description {
+      max-width: 620px;
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: clamp(0.95rem, 1.4vw, 1.125rem);
+      line-height: 1.75;
+      color: var(--body-text);
+    }
+
+    .cover-meta {
+      position: absolute;
+      bottom: 60px;
+      right: var(--container-padding);
+      font-family: var(--font-ui);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .cover-meta span {
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* ─── SECTION ─── */
+
+    .section {
+      padding: var(--section-gap) var(--container-padding);
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
+      align-items: start;
+      margin-bottom: 70px;
+    }
+
+    .section-number {
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--navy);
+    }
+
+    .section-description {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 500px;
+      padding-top: 8px;
+    }
+
+    /* ─── SUBSECTION ─── */
+
+    .subsection {
+      margin-bottom: 72px;
+    }
+
+    .subsection-label {
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .subsection-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background-color: var(--navy);
+      opacity: 0.1;
+    }
+
+    /* ─── COLOR SWATCHES ─── */
+
+    .swatches-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .swatch-group {
+      margin-bottom: 52px;
+    }
+
+    .swatch-group-label {
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .swatch {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .swatch-color {
+      width: 80px;
+      height: 80px;
+      border-radius: 6px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid rgba(18, 21, 42, 0.08);
+    }
+
+    .swatch:hover .swatch-color {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(18, 21, 42, 0.12);
+    }
+
+    .swatch-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .swatch-hex {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--navy);
+    }
+
+    .swatch-name {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+
+    .swatch-copied {
+      position: absolute;
+      top: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--navy);
+      color: var(--cream);
+      font-family: var(--font-ui);
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border-radius: 3px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .swatch.copied .swatch-copied {
+      opacity: 1;
+    }
+
+    /* ─── TYPOGRAPHY ─── */
+
+    .type-scale-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .type-scale-table thead tr {
+      border-bottom: 1px solid rgba(18, 21, 42, 0.15);
+    }
+
+    .type-scale-table th {
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: left;
+      padding: 0 0 14px 0;
+    }
+
+    .type-scale-table th:not(:first-child) {
+      padding-left: 30px;
+    }
+
+    .type-scale-table td {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(18, 21, 42, 0.07);
+      vertical-align: top;
+    }
+
+    .type-scale-table td:not(:first-child) {
+      padding-left: 30px;
+    }
+
+    .type-preview-label {
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      font-weight: 400;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .type-size-value {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--navy);
+      white-space: nowrap;
+      line-height: 1.6;
+    }
+
+    .type-meta {
+      font-family: var(--font-ui);
+      font-size: 0.7rem;
+      font-weight: 300;
+      color: var(--muted);
+    }
+
+    .font-families-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-bottom: 60px;
+    }
+
+    .font-family-card {
+      background-color: rgba(18, 21, 42, 0.03);
+      padding: 36px 32px;
+    }
+
+    .font-family-card:first-child {
+      border-radius: 8px 0 0 8px;
+    }
+
+    .font-family-card:last-child {
+      border-radius: 0 8px 8px 0;
+    }
+
+    .font-family-name {
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .font-family-sample-oswald {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 2.8rem;
+      line-height: 1;
+      color: var(--navy);
+      text-transform: uppercase;
+    }
+
+    .font-family-sample-roboto {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 1.8rem;
+      line-height: 1.2;
+      color: var(--navy);
+    }
+
+    .font-family-sample-inter {
+      font-family: var(--font-ui);
+      font-weight: 400;
+      font-size: 1.4rem;
+      line-height: 1.3;
+      color: var(--navy);
+    }
+
+    .font-family-usage {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--muted);
+      margin-top: 14px;
+      line-height: 1.5;
+    }
+
+    .letter-spacing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-top: 40px;
+    }
+
+    .letter-spacing-card {
+      background-color: rgba(18, 21, 42, 0.03);
+      padding: 30px 32px;
+      border-radius: 4px;
+    }
+
+    .ls-label {
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .ls-sample-upper {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+
+    .ls-sample-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+
+    .ls-value {
+      font-family: var(--font-ui);
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    /* ─── SPACING & LAYOUT ─── */
+
+    .spacing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .spacing-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .spacing-table tr {
+      border-bottom: 1px solid rgba(18, 21, 42, 0.07);
+    }
+
+    .spacing-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .spacing-table td {
+      padding: 14px 0;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 300;
+    }
+
+    .spacing-table td:first-child {
+      color: var(--muted);
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+    }
+
+    .spacing-table td:last-child {
+      font-family: var(--font-ui);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--navy);
+      text-align: right;
+    }
+
+    .spacing-bar-container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .spacing-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .spacing-bar-label {
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      font-weight: 400;
+      color: var(--muted);
+      min-width: 140px;
+    }
+
+    .spacing-bar {
+      height: 6px;
+      background-color: var(--navy);
+      border-radius: 2px;
+      opacity: 0.75;
+    }
+
+    .spacing-bar-value {
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: var(--navy);
+      min-width: 50px;
+    }
+
+    .breakpoints-row {
+      display: flex;
+      gap: 2px;
+      margin-top: 40px;
+    }
+
+    .breakpoint-card {
+      flex: 1;
+      padding: 24px 20px;
+      background-color: rgba(18, 21, 42, 0.03);
+    }
+
+    .breakpoint-card:first-child { border-radius: 8px 0 0 8px; }
+    .breakpoint-card:last-child { border-radius: 0 8px 8px 0; }
+
+    .breakpoint-name {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .breakpoint-value {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    /* ─── MOTION ─── */
+
+    .motion-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .motion-card {
+      background-color: rgba(18, 21, 42, 0.025);
+      padding: 28px 28px;
+      border-radius: 4px;
+    }
+
+    .motion-card-name {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .motion-card-value {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .motion-card-value strong {
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    /* ─── COMPONENTS ─── */
+
+    .components-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .component-card {
+      padding: 36px 0;
+      border-bottom: 1px solid rgba(18, 21, 42, 0.08);
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .component-card:last-child {
+      border-bottom: none;
+    }
+
+    .component-index {
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .component-name {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: var(--navy);
+    }
+
+    .component-description {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--body-text);
+      margin-bottom: 20px;
+    }
+
+    .component-states {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .state-tag {
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      border: 1px solid rgba(18, 21, 42, 0.2);
+      padding: 4px 10px;
+      border-radius: 2px;
+    }
+
+    .component-specs {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .spec-line {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .spec-line strong {
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    /* ─── MICROINTERACTIONS ─── */
+
+    .interactions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .interaction-row {
+      display: grid;
+      grid-template-columns: 36px 220px 1fr 1fr;
+      gap: 30px;
+      align-items: start;
+      padding: 26px 0;
+      border-bottom: 1px solid rgba(18, 21, 42, 0.07);
+    }
+
+    .interaction-row:last-child {
+      border-bottom: none;
+    }
+
+    .interaction-number {
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      font-weight: 500;
+      color: rgba(18, 21, 42, 0.25);
+      padding-top: 2px;
+    }
+
+    .interaction-name {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--navy);
+      line-height: 1.4;
+    }
+
+    .interaction-trigger {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .interaction-trigger strong {
+      color: var(--navy);
+      font-weight: 500;
+      display: block;
+      margin-bottom: 3px;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .interaction-values {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .interaction-values strong {
+      color: var(--navy);
+      font-weight: 500;
+      display: block;
+      margin-bottom: 3px;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ─── HOVER THEMES ─── */
+
+    .themes-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .theme-card {
+      padding: 40px 36px;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .theme-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background-color: currentColor;
+      opacity: 0.25;
+    }
+
+    .theme-year {
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      opacity: 0.6;
+    }
+
+    .theme-project {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .theme-company {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 0.85rem;
+      opacity: 0.7;
+      margin-bottom: 28px;
+    }
+
+    .theme-colors {
+      display: flex;
+      gap: 10px;
+    }
+
+    .theme-swatch {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.15);
+    }
+
+    .theme-hex {
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      font-weight: 400;
+      opacity: 0.55;
+      margin-top: 10px;
+    }
+
+    /* ─── TYPE SCALE PREVIEW ─── */
+
+    .type-scale-preview {
+      background-color: rgba(18, 21, 42, 0.02);
+      padding: 50px 52px;
+      border-radius: 8px;
+      margin-bottom: 50px;
+      overflow: hidden;
+    }
+
+    .preview-display {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .preview-h1 {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 4.5rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 24px;
+    }
+
+    .preview-body {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: clamp(14px, 1.4vw, 18.53px);
+      line-height: 1.65;
+      color: var(--body-text);
+      max-width: 540px;
+      margin-bottom: 16px;
+    }
+
+    .preview-label {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: clamp(12px, 1.3vw, 17.58px);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .preview-caption {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: clamp(13px, 1.4vw, 18.58px);
+      color: var(--caption);
+    }
+
+    .preview-ui {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 16px;
+    }
+
+    /* ─── FOOTER ─── */
+
+    .footer {
+      padding: 80px var(--container-padding);
+      border-top: 1px solid rgba(18, 21, 42, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .footer-left {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+
+    .footer-right {
+      font-family: var(--font-ui);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: right;
+      line-height: 1.8;
+    }
+
+    /* ─── RESPONSIVE ─── */
+
+    @media (max-width: 900px) {
+      :root {
+        --container-padding: 40px;
+        --section-gap: 80px;
+      }
+
+      .section-header {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .font-families-grid {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+
+      .font-family-card:first-child { border-radius: 8px 8px 0 0; }
+      .font-family-card:last-child { border-radius: 0 0 8px 8px; }
+
+      .motion-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .component-card {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .interaction-row {
+        grid-template-columns: 30px 1fr;
+        gap: 16px;
+      }
+
+      .interaction-trigger, .interaction-values {
+        grid-column: 2;
+      }
+
+      .themes-row {
+        grid-template-columns: 1fr;
+      }
+
+      .spacing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer {
+        flex-direction: column;
+        gap: 40px;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --container-padding: 20px;
+        --section-gap: 60px;
+      }
+
+      .letter-spacing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .breakpoints-row {
+        flex-direction: column;
+      }
+
+      .breakpoint-card:first-child { border-radius: 8px 8px 0 0; }
+      .breakpoint-card:last-child { border-radius: 0 0 8px 8px; }
+    }
+
+    /* ─── SECTION INDICATORS ─── */
+
+    .section-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 60px;
+    }
+
+    .section-indicator::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background-color: var(--muted);
+    }
+
+    /* ─── INFOBOX ─── */
+
+    .infobox {
+      background-color: var(--sheet-blue);
+      padding: 24px 28px;
+      border-radius: 6px;
+      margin-top: 40px;
+    }
+
+    .infobox-label {
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--navy);
+      opacity: 0.6;
+      margin-bottom: 8px;
+    }
+
+    .infobox-text {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1.6;
+    }
+
+    /* ─── TABLE OF CONTENTS ─── */
+
+    .toc {
+      padding: 60px var(--container-padding) 0;
+      margin-bottom: 0;
+    }
+
+    .toc-label {
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .toc-list {
+      display: flex;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .toc-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-right: 30px;
+      margin-bottom: 12px;
+    }
+
+    .toc-item-number {
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      font-weight: 400;
+      color: rgba(18, 21, 42, 0.3);
+    }
+
+    .toc-item-name {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--navy);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════ COVER ══════════════════════════════ -->
+
+  <section class="cover">
+    <div class="cover-eyebrow">Victoria Arenque — UX Designer</div>
+    <h1 class="cover-title">Design<br>System<br>& Specs</h1>
+    <p class="cover-subtitle">Portfolio — 2024</p>
+    <p class="cover-description">
+      An editorial system built on restraint and precision. The portfolio operates through extreme typographic contrast — Oswald's geometric austerity set against Roboto's quiet legibility — held together by a single warm cream field that breathes between every element. Motion is choreographic: every transition is timed not to impress, but to guide. The cursor itself becomes an active design element, inverting the world it touches through <em>mix-blend-mode: difference</em>. Smooth scroll carries a deliberate inertia, slowing the eye before content arrives. Interactions are cinematographic in their easing — expo.out for entrances, expo.in for exits — creating the sensation of weight and momentum. Nothing moves without reason; everything that moves does so with intention.
+    </p>
+    <div class="cover-meta">
+      <span>Design System Document</span>
+      <span>Version 1.0</span>
+      <span style="margin-top: 10px; opacity: 0.5;">— V.A.</span>
+    </div>
+  </section>
+
+  <div class="divider divider--full"></div>
+
+  <!-- ══════════════════════════════ TABLE OF CONTENTS ══════════════════════════════ -->
+
+  <div class="toc">
+    <div class="toc-label">Contents</div>
+    <div class="toc-list">
+      <div class="toc-item"><span class="toc-item-number">01</span><span class="toc-item-name">Color</span></div>
+      <div class="toc-item"><span class="toc-item-number">02</span><span class="toc-item-name">Typography</span></div>
+      <div class="toc-item"><span class="toc-item-number">03</span><span class="toc-item-name">Spacing & Layout</span></div>
+      <div class="toc-item"><span class="toc-item-number">04</span><span class="toc-item-name">Motion</span></div>
+      <div class="toc-item"><span class="toc-item-number">05</span><span class="toc-item-name">Components</span></div>
+      <div class="toc-item"><span class="toc-item-number">06</span><span class="toc-item-name">Microinteractions</span></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════ 01 — COLOR ══════════════════════════════ -->
+
+  <section class="section" id="color">
+    <div class="page-wrapper" style="padding: 0;">
+
+      <div class="section-header">
+        <div>
+          <div class="section-number">01</div>
+          <h2 class="section-title">Color</h2>
+        </div>
+        <p class="section-description">
+          A deliberately sparse palette. Cream as the resting field. Navy as the sole anchor for text, borders, and all primary actions. Color enters only through project hover states — each with its own atmospheric shift.
+        </p>
+      </div>
+
+      <!-- Base palette -->
+      <div class="subsection">
+        <div class="subsection-label">Home / Base</div>
+        <div class="swatches-grid">
+          <div class="swatch" onclick="copyHex(this, '#FFFEF8')">
+            <span class="swatch-copied">Copied</span>
+            <div class="swatch-color" style="background-color: #FFFEF8;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex">#FFFEF8</span>
+              <span class="swatch-name">Cream<br>Background</span>
+            </div>
+          </div>
+          <div class="swatch" onclick="copyHex(this, '#12152A')">
+            <span class="swatch-copied">Copied</span>
+            <div class="swatch-color" style="background-color: #12152A;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex">#12152A</span>
+              <span class="swatch-name">Navy<br>Text primary, borders</span>
+            </div>
+          </div>
+          <div class="swatch" onclick="copyHex(this, '#666666')">
+            <span class="swatch-copied">Copied</span>
+            <div class="swatch-color" style="background-color: #666666;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex">#666666</span>
+              <span class="swatch-name">Muted<br>Text secondary</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Study Sheet -->
+      <div class="subsection">
+        <div class="subsection-label">Case Study Sheet</div>
+        <div class="swatches-grid">
+          <div class="swatch" onclick="copyHex(this, '#12152A')">
+            <span class="swatch-copied">Copied</span>
+            <div class="swatch-color" style="background-color: #12152A;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex">#12152A</span>
+              <span class="swatch-name">Sheet Navy<br>Header background</span>
+            </div>
+          </div>
+          <div class="swatch" onclick="copyHex(this, '#A5C7EA')">
+            <span class="swatch-copied">Copied</span>
+            <div class="swatch-color" style="background-color: #A5C7EA;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex">#A5C7EA</span>
+              <span class="swatch-name">Sheet Blue<br>Accent, info bar</span>
+            </div>
+          </div>
+          <div class="swatch" onclick="copyHex(this, '#FFFEF8')">
+            <span class="swatch-copied">Copied</span>
+            <div class="swatch-color" style="background-color: #FFFEF8;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex">#FFFEF8</span>
+              <span class="swatch-name">Sheet Cream<br>Body background</span>
+            </div>
+          </div>
+          <div class="swatch" onclick="copyHex(this, '#333333')">
+            <span class="swatch-copied">Copied</span>
+            <div class="swatch-color" style="background-color: #333333;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex">#333333</span>
+              <span class="swatch-name">Body Text<br>Long-form content</span>
+            </div>
+          </div>
+          <div class="swatch" onclick="copyHex(this, '#494949')">
+            <span class="swatch-copied">Copied</span>
+            <div class="swatch-color" style="background-color: #494949;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex">#494949</span>
+              <span class="swatch-name">Caption<br>Legends, metadata</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project hover themes -->
+      <div class="subsection">
+        <div class="subsection-label">Project Hover Themes</div>
+        <div class="themes-row">
+          <div class="theme-card" style="background-color: #813321; color: #F7E9D0;">
+            <div class="theme-year">2024</div>
+            <div class="theme-project">Mercado<br>Pago</div>
+            <div class="theme-company">CRM Project</div>
+            <div class="theme-colors">
+              <div class="theme-swatch" style="background-color: #813321;"></div>
+              <div class="theme-swatch" style="background-color: #F7E9D0;"></div>
+            </div>
+            <div class="theme-hex">#813321 · #F7E9D0</div>
+          </div>
+          <div class="theme-card" style="background-color: #103214; color: #B0FFB5;">
+            <div class="theme-year">2023</div>
+            <div class="theme-project">Mercado<br>Pago</div>
+            <div class="theme-company">2023 Project</div>
+            <div class="theme-colors">
+              <div class="theme-swatch" style="background-color: #103214;"></div>
+              <div class="theme-swatch" style="background-color: #B0FFB5;"></div>
+            </div>
+            <div class="theme-hex">#103214 · #B0FFB5</div>
+          </div>
+          <div class="theme-card" style="background-color: #101630; color: #A5C7EA;">
+            <div class="theme-year">2022</div>
+            <div class="theme-project">Quinto<br>Andar</div>
+            <div class="theme-company">2022 Project</div>
+            <div class="theme-colors">
+              <div class="theme-swatch" style="background-color: #101630;"></div>
+              <div class="theme-swatch" style="background-color: #A5C7EA;"></div>
+            </div>
+            <div class="theme-hex">#101630 · #A5C7EA</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accent colors -->
+      <div class="subsection">
+        <div class="subsection-label">Accent Colors — Per Theme</div>
+        <div class="swatches-grid">
+          <div class="swatch" onclick="copyHex(this, '#F7E9D0')">
+            <span class="swatch-copied">Copied</span>
+            <div class="swatch-color" style="background-color: #F7E9D0;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex">#F7E9D0</span>
+              <span class="swatch-name">Accent Terracota<br>Paired with #813321</span>
+            </div>
+          </div>
+          <div class="swatch" onclick="copyHex(this, '#B0FFB5')">
+            <span class="swatch-copied">Copied</span>
+            <div class="swatch-color" style="background-color: #B0FFB5;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex">#B0FFB5</span>
+              <span class="swatch-name">Accent Verde<br>Paired with #103214</span>
+            </div>
+          </div>
+          <div class="swatch" onclick="copyHex(this, '#A5C7EA')">
+            <span class="swatch-copied">Copied</span>
+            <div class="swatch-color" style="background-color: #A5C7EA;"></div>
+            <div class="swatch-info">
+              <span class="swatch-hex">#A5C7EA</span>
+              <span class="swatch-name">Accent Azul<br>Paired with #101630</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="infobox">
+          <div class="infobox-label">Usage note</div>
+          <div class="infobox-text">On project hover, <code style="font-family: var(--font-ui); font-size: 0.8rem;">body.backgroundColor</code> transitions to the theme's base color over <strong>0.6s ease</strong>. The accent color is applied to text, borders, and interactive elements within that project row to maintain legibility contrast against the dark background.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════ 02 — TYPOGRAPHY ══════════════════════════════ -->
+
+  <section class="section" id="typography">
+    <div class="page-wrapper" style="padding: 0;">
+
+      <div class="section-header">
+        <div>
+          <div class="section-number">02</div>
+          <h2 class="section-title">Typography</h2>
+        </div>
+        <p class="section-description">
+          Three type families in strict roles. Oswald carries all display — uppercase, condensed, zero-weight. Roboto handles the body at 300, breathing through long-form content. Inter manages UI precision: labels, tags, metadata.
+        </p>
+      </div>
+
+      <!-- Type preview -->
+      <div class="type-scale-preview">
+        <div class="preview-display">Victoria<br>Arenque</div>
+        <div class="preview-h1">UX Designer</div>
+        <div class="preview-label">Selected works — 2022–2024</div>
+        <div class="preview-body">
+          A portfolio built around the quality of thought behind each decision. Not a gallery of deliverables, but a record of the reasoning that produced them.
+        </div>
+        <div class="preview-caption">Project caption — Mercado Pago, 2024</div>
+        <div class="preview-ui">UI Metadata · 12px · Inter 400</div>
+      </div>
+
+      <!-- Font families -->
+      <div class="subsection">
+        <div class="subsection-label">Type Families</div>
+        <div class="font-families-grid">
+          <div class="font-family-card">
+            <div class="font-family-name">Oswald — Display</div>
+            <div class="font-family-sample-oswald">Abcde<br>12345</div>
+            <div class="font-family-usage">Weight: 300<br>Role: Titles, headlines, section headers<br>Always uppercase, letter-spacing varies</div>
+          </div>
+          <div class="font-family-card">
+            <div class="font-family-name">Roboto — Body</div>
+            <div class="font-family-sample-roboto">The quiet<br>voice of content.</div>
+            <div class="font-family-usage">Weights: 300 / 400 / 600<br>Role: Body text, labels, captions<br>Mixed case, natural reading flow</div>
+          </div>
+          <div class="font-family-card">
+            <div class="font-family-name">Inter — UI</div>
+            <div class="font-family-sample-inter">UI / Metadata<br>Labels 0.12em</div>
+            <div class="font-family-usage">Weights: 300 / 400 / 500<br>Role: UI elements, tags, metadata<br>Uppercase with tracking for labels</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Type scale table -->
+      <div class="subsection">
+        <div class="subsection-label">Type Scale — Fluid with clamp()</div>
+        <table class="type-scale-table">
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th>Value</th>
+              <th>Family / Weight</th>
+              <th>Usage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="type-preview-label">Display</span></td>
+              <td><span class="type-size-value">clamp(2.5rem, 8vw, 5rem)</span></td>
+              <td><span class="type-meta">Oswald 300 — Uppercase</span></td>
+              <td><span class="type-meta">Hero title — Home</span></td>
+            </tr>
+            <tr>
+              <td><span class="type-preview-label">H1 Case</span></td>
+              <td><span class="type-size-value">clamp(2.5rem, 7vw, 7rem)</span></td>
+              <td><span class="type-meta">Oswald 300 — Uppercase</span></td>
+              <td><span class="type-meta">Case study sheet title</span></td>
+            </tr>
+            <tr>
+              <td><span class="type-preview-label">Section Title</span></td>
+              <td><span class="type-size-value">clamp(2rem, 5vw, 4.5rem)</span></td>
+              <td><span class="type-meta">Oswald 300 — Uppercase</span></td>
+              <td><span class="type-meta">Section headers</span></td>
+            </tr>
+            <tr>
+              <td><span class="type-preview-label">Label</span></td>
+              <td><span class="type-size-value">clamp(12px, 1.3vw, 17.58px)</span></td>
+              <td><span class="type-meta">Roboto 400 — Uppercase, ls 0.1em</span></td>
+              <td><span class="type-meta">Row labels, info labels</span></td>
+            </tr>
+            <tr>
+              <td><span class="type-preview-label">Body</span></td>
+              <td><span class="type-size-value">clamp(14px, 1.4vw, 18.53px)</span></td>
+              <td><span class="type-meta">Roboto 300</span></td>
+              <td><span class="type-meta">Long-form body text</span></td>
+            </tr>
+            <tr>
+              <td><span class="type-preview-label">Caption</span></td>
+              <td><span class="type-size-value">clamp(13px, 1.4vw, 18.58px)</span></td>
+              <td><span class="type-meta">Roboto 300</span></td>
+              <td><span class="type-meta">Captions, secondary info</span></td>
+            </tr>
+            <tr>
+              <td><span class="type-preview-label">UI XS</span></td>
+              <td><span class="type-size-value">0.75rem (fixed)</span></td>
+              <td><span class="type-meta">Inter 400–500 — Uppercase</span></td>
+              <td><span class="type-meta">Tags, metadata, status labels</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Letter spacing -->
+      <div class="subsection">
+        <div class="subsection-label">Letter Spacing</div>
+        <div class="letter-spacing-grid">
+          <div class="letter-spacing-card">
+            <div class="ls-label">Uppercase Labels — 0.1em</div>
+            <div class="ls-sample-upper">Available for work</div>
+            <div class="ls-value">letter-spacing: 0.1em · Roboto 400 · text-transform: uppercase</div>
+          </div>
+          <div class="letter-spacing-card">
+            <div class="ls-label">Display Titles — –0.02em</div>
+            <div class="ls-sample-title">Design</div>
+            <div class="ls-value">letter-spacing: –0.02em · Oswald 300 · large sizes only</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════ 03 — SPACING & LAYOUT ══════════════════════════════ -->
+
+  <section class="section" id="spacing">
+    <div class="page-wrapper" style="padding: 0;">
+
+      <div class="section-header">
+        <div>
+          <div class="section-number">03</div>
+          <h2 class="section-title">Spacing<br>& Layout</h2>
+        </div>
+        <p class="section-description">
+          Generous white space is not a consequence of the design — it is the design. Padding and gap values are fixed constants, not scales. The max-width container ensures the grid never collapses into density.
+        </p>
+      </div>
+
+      <div class="spacing-grid">
+        <!-- Left: values table -->
+        <div>
+          <div class="subsection-label">Spacing Tokens</div>
+          <table class="spacing-table">
+            <tr>
+              <td>Container padding lateral (desktop)</td>
+              <td>30px</td>
+            </tr>
+            <tr>
+              <td>Container padding lateral (mobile)</td>
+              <td>20px</td>
+            </tr>
+            <tr>
+              <td>Max-width content</td>
+              <td>1301px</td>
+            </tr>
+            <tr>
+              <td>Gap entre rows</td>
+              <td>30px</td>
+            </tr>
+            <tr>
+              <td>Gap horizontal (label → texto)</td>
+              <td>368px (Figma)</td>
+            </tr>
+            <tr>
+              <td>Section header padding-top</td>
+              <td>100px</td>
+            </tr>
+            <tr>
+              <td>Demo sections padding</td>
+              <td>50px</td>
+            </tr>
+            <tr>
+              <td>Content padding</td>
+              <td>100px 30px</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Right: visual bars -->
+        <div>
+          <div class="subsection-label">Visual Reference</div>
+          <div class="spacing-bar-container">
+            <div class="spacing-bar-row">
+              <span class="spacing-bar-label">Container padding</span>
+              <div class="spacing-bar" style="width: 30px;"></div>
+              <span class="spacing-bar-value">30px</span>
+            </div>
+            <div class="spacing-bar-row">
+              <span class="spacing-bar-label">Row gap</span>
+              <div class="spacing-bar" style="width: 30px;"></div>
+              <span class="spacing-bar-value">30px</span>
+            </div>
+            <div class="spacing-bar-row">
+              <span class="spacing-bar-label">Section pad-top</span>
+              <div class="spacing-bar" style="width: 100px;"></div>
+              <span class="spacing-bar-value">100px</span>
+            </div>
+            <div class="spacing-bar-row">
+              <span class="spacing-bar-label">Demo pad</span>
+              <div class="spacing-bar" style="width: 50px;"></div>
+              <span class="spacing-bar-value">50px</span>
+            </div>
+            <div class="spacing-bar-row">
+              <span class="spacing-bar-label">Content pad</span>
+              <div class="spacing-bar" style="width: 100px;"></div>
+              <span class="spacing-bar-value">100px 30px</span>
+            </div>
+            <div class="spacing-bar-row">
+              <span class="spacing-bar-label">Label → text (Figma)</span>
+              <div class="spacing-bar" style="width: 160px; opacity: 0.35;"></div>
+              <span class="spacing-bar-value">368px</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Breakpoints -->
+      <div class="subsection" style="margin-top: 60px;">
+        <div class="subsection-label">Breakpoints</div>
+        <div class="breakpoints-row">
+          <div class="breakpoint-card">
+            <div class="breakpoint-name">Desktop</div>
+            <div class="breakpoint-value">Width &gt; 768px</div>
+          </div>
+          <div class="breakpoint-card">
+            <div class="breakpoint-name">Tablet</div>
+            <div class="breakpoint-value">Width ≤ 768px</div>
+          </div>
+          <div class="breakpoint-card">
+            <div class="breakpoint-name">Mobile</div>
+            <div class="breakpoint-value">Width ≤ 480px</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project list grid -->
+      <div class="subsection" style="margin-top: 60px;">
+        <div class="subsection-label">Project List — Grid Structure</div>
+        <div style="background-color: rgba(18,21,42,0.03); padding: 32px; border-radius: 6px;">
+          <div style="display: grid; grid-template-columns: 80px 1fr 180px 1fr; gap: 0; border-bottom: 1px solid rgba(18,21,42,0.12); padding-bottom: 14px; margin-bottom: 14px;">
+            <span style="font-family: var(--font-ui); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted);">Ano</span>
+            <span style="font-family: var(--font-ui); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted);">Título</span>
+            <span style="font-family: var(--font-ui); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted);">Empresa</span>
+            <span style="font-family: var(--font-ui); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted);">Skills</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 80px 1fr 180px 1fr; gap: 0; padding: 10px 0; opacity: 0.4;">
+            <span style="font-family: var(--font-body); font-size: 0.82rem; font-weight: 300; color: var(--navy);">2024</span>
+            <span style="font-family: var(--font-display); font-size: 1rem; text-transform: uppercase; color: var(--navy);">CRM Project</span>
+            <span style="font-family: var(--font-body); font-size: 0.82rem; font-weight: 300; color: var(--muted);">Mercado Pago</span>
+            <span style="font-family: var(--font-body); font-size: 0.78rem; font-weight: 300; color: var(--muted);">Research · UX Design · Data</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 80px 1fr 180px 1fr; gap: 0; padding: 10px 0;">
+            <span style="font-family: var(--font-body); font-size: 0.82rem; font-weight: 300; color: var(--navy);">2023</span>
+            <span style="font-family: var(--font-display); font-size: 1rem; text-transform: uppercase; color: var(--navy);">Project Title</span>
+            <span style="font-family: var(--font-body); font-size: 0.82rem; font-weight: 300; color: var(--muted);">Mercado Pago</span>
+            <span style="font-family: var(--font-body); font-size: 0.78rem; font-weight: 300; color: var(--muted);">Product Design · Strategy</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 80px 1fr 180px 1fr; gap: 0; padding: 10px 0; opacity: 0.4;">
+            <span style="font-family: var(--font-body); font-size: 0.82rem; font-weight: 300; color: var(--navy);">2022</span>
+            <span style="font-family: var(--font-display); font-size: 1rem; text-transform: uppercase; color: var(--navy);">Project Title</span>
+            <span style="font-family: var(--font-body); font-size: 0.82rem; font-weight: 300; color: var(--muted);">QuintoAndar</span>
+            <span style="font-family: var(--font-body); font-size: 0.78rem; font-weight: 300; color: var(--muted);">UX Research · Facilitation</span>
+          </div>
+          <div style="margin-top: 16px; font-family: var(--font-ui); font-size: 0.62rem; font-weight: 400; color: var(--muted); letter-spacing: 0.08em;">↑ Spotlight: middle row active (opacity 1.0) — others at 0.3</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════ 04 — MOTION ══════════════════════════════ -->
+
+  <section class="section" id="motion">
+    <div class="page-wrapper" style="padding: 0;">
+
+      <div class="section-header">
+        <div>
+          <div class="section-number">04</div>
+          <h2 class="section-title">Motion</h2>
+        </div>
+        <p class="section-description">
+          Every duration and easing value is intentional. Expo curves create the sensation of physical objects — fast start, deceleration as they land. Smooth scroll lerp adds inertia, not just animation. The system uses GSAP throughout.
+        </p>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-label">Scroll & Cursor</div>
+        <div class="motion-grid">
+          <div class="motion-card">
+            <div class="motion-card-name">Lenis Smooth Scroll</div>
+            <div class="motion-card-value">
+              <strong>lerp:</strong> 0.1<br>
+              <strong>wheelMultiplier:</strong> 0.7<br>
+              Creates deliberate inertia — the page arrives slightly after the intention, adding sensoriality.
+            </div>
+          </div>
+          <div class="motion-card">
+            <div class="motion-card-name">Cursor Dot Move</div>
+            <div class="motion-card-value">
+              <strong>method:</strong> GSAP quickTo<br>
+              <strong>duration:</strong> 0.15s<br>
+              <strong>ease:</strong> power2<br>
+              Smooth lag creates the feeling that the cursor has weight.
+            </div>
+          </div>
+          <div class="motion-card">
+            <div class="motion-card-name">Cursor Expand</div>
+            <div class="motion-card-value">
+              <strong>trigger:</strong> mouseenter on interactive elements<br>
+              <strong>from:</strong> 20px<br>
+              <strong>to:</strong> 48px<br>
+              <strong>duration:</strong> 0.3s<br>
+              <strong>ease:</strong> power2.out
+            </div>
+          </div>
+          <div class="motion-card">
+            <div class="motion-card-name">mix-blend-mode</div>
+            <div class="motion-card-value">
+              <strong>value:</strong> difference<br>
+              The cursor dot inverts all colors it overlaps — functioning as an interactive design element, not just a pointer.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-label">Navigation Menu</div>
+        <div class="motion-grid">
+          <div class="motion-card">
+            <div class="motion-card-name">Menu Open — Panels</div>
+            <div class="motion-card-value">
+              <strong>count:</strong> 3 panels<br>
+              <strong>direction:</strong> slide in from right<br>
+              <strong>duration:</strong> 0.8s<br>
+              <strong>stagger:</strong> 0.15s<br>
+              <strong>ease:</strong> expo.out
+            </div>
+          </div>
+          <div class="motion-card">
+            <div class="motion-card-name">Menu Open — Links</div>
+            <div class="motion-card-value">
+              <strong>effect:</strong> fade + slide up<br>
+              <strong>duration:</strong> 0.6s<br>
+              <strong>stagger:</strong> 0.08s<br>
+              <strong>ease:</strong> power3.out<br>
+              Sequential reveal creates readable cascade.
+            </div>
+          </div>
+          <div class="motion-card">
+            <div class="motion-card-name">Menu Close</div>
+            <div class="motion-card-value">
+              <strong>trigger:</strong> click, ESC, or link<br>
+              <strong>direction:</strong> reverse timeline<br>
+              Panels slide out in reverse order.
+            </div>
+          </div>
+          <div class="motion-card">
+            <div class="motion-card-name">Button Text Scroll</div>
+            <div class="motion-card-value">
+              <strong>effect:</strong> vertical text clip scroll<br>
+              <strong>duration:</strong> 0.4s<br>
+              <strong>ease:</strong> power3.inOut
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-label">Case Study Sheet</div>
+        <div class="motion-grid">
+          <div class="motion-card">
+            <div class="motion-card-name">Sheet Open</div>
+            <div class="motion-card-value">
+              <strong>direction:</strong> translateY(100%) → 0<br>
+              <strong>duration:</strong> 0.8s<br>
+              <strong>ease:</strong> expo.out<br>
+              Lenis secondary instance activates after open completes.
+            </div>
+          </div>
+          <div class="motion-card">
+            <div class="motion-card-name">Sheet Close</div>
+            <div class="motion-card-value">
+              <strong>direction:</strong> 0 → translateY(100%)<br>
+              <strong>duration:</strong> 0.65s<br>
+              <strong>ease:</strong> expo.in<br>
+              Scroll position resets. Lenis secondary destroys.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-label">Header & Page Transitions</div>
+        <div class="motion-grid">
+          <div class="motion-card">
+            <div class="motion-card-name">Header Text Hide</div>
+            <div class="motion-card-value">
+              <strong>trigger:</strong> scroll down &gt; 50px<br>
+              Text fades + slides up per letter.<br>
+              <strong>trigger reverse:</strong> scroll up → letter-by-letter reveal.
+            </div>
+          </div>
+          <div class="motion-card">
+            <div class="motion-card-name">Background Color Shift</div>
+            <div class="motion-card-value">
+              <strong>trigger:</strong> hover on project row<br>
+              <strong>property:</strong> body.backgroundColor<br>
+              <strong>duration:</strong> 0.6s ease<br>
+              Full-body color change for atmospheric immersion.
+            </div>
+          </div>
+          <div class="motion-card">
+            <div class="motion-card-name">Border / Color Transitions</div>
+            <div class="motion-card-value">
+              <strong>applied to:</strong> borders, text colors, button fills<br>
+              <strong>duration:</strong> 0.3s ease-in-out<br>
+              Consistent micro-transition timing across all state changes.
+            </div>
+          </div>
+          <div class="motion-card">
+            <div class="motion-card-name">Close Button Inversion</div>
+            <div class="motion-card-value">
+              <strong>trigger:</strong> scroll crosses header threshold<br>
+              <strong>effect:</strong> button inverts background/color<br>
+              Navy on cream → cream on navy, automatically.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary timeline -->
+      <div style="background-color: rgba(18,21,42,0.03); border-radius: 8px; padding: 36px 40px; margin-top: 10px;">
+        <div style="font-family: var(--font-ui); font-size: 0.62rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px;">Duration Reference — Fastest to Slowest</div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <span style="font-family: var(--font-ui); font-size: 0.68rem; color: var(--muted); min-width: 200px;">Cursor move</span>
+            <div style="height: 4px; background: var(--navy); border-radius: 2px; width: calc(0.15 * 80px); opacity: 0.7;"></div>
+            <span style="font-family: var(--font-ui); font-size: 0.68rem; font-weight: 500; color: var(--navy);">0.15s</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <span style="font-family: var(--font-ui); font-size: 0.68rem; color: var(--muted); min-width: 200px;">Cursor expand</span>
+            <div style="height: 4px; background: var(--navy); border-radius: 2px; width: calc(0.3 * 80px); opacity: 0.7;"></div>
+            <span style="font-family: var(--font-ui); font-size: 0.68rem; font-weight: 500; color: var(--navy);">0.3s</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <span style="font-family: var(--font-ui); font-size: 0.68rem; color: var(--muted); min-width: 200px;">Border / color transitions</span>
+            <div style="height: 4px; background: var(--navy); border-radius: 2px; width: calc(0.3 * 80px); opacity: 0.7;"></div>
+            <span style="font-family: var(--font-ui); font-size: 0.68rem; font-weight: 500; color: var(--navy);">0.3s</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <span style="font-family: var(--font-ui); font-size: 0.68rem; color: var(--muted); min-width: 200px;">Button text scroll</span>
+            <div style="height: 4px; background: var(--navy); border-radius: 2px; width: calc(0.4 * 80px); opacity: 0.7;"></div>
+            <span style="font-family: var(--font-ui); font-size: 0.68rem; font-weight: 500; color: var(--navy);">0.4s</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <span style="font-family: var(--font-ui); font-size: 0.68rem; color: var(--muted); min-width: 200px;">Menu links</span>
+            <div style="height: 4px; background: var(--navy); border-radius: 2px; width: calc(0.6 * 80px); opacity: 0.7;"></div>
+            <span style="font-family: var(--font-ui); font-size: 0.68rem; font-weight: 500; color: var(--navy);">0.6s</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <span style="font-family: var(--font-ui); font-size: 0.68rem; color: var(--muted); min-width: 200px;">Background color shift</span>
+            <div style="height: 4px; background: var(--navy); border-radius: 2px; width: calc(0.6 * 80px); opacity: 0.7;"></div>
+            <span style="font-family: var(--font-ui); font-size: 0.68rem; font-weight: 500; color: var(--navy);">0.6s</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <span style="font-family: var(--font-ui); font-size: 0.68rem; color: var(--muted); min-width: 200px;">Sheet close</span>
+            <div style="height: 4px; background: var(--navy); border-radius: 2px; width: calc(0.65 * 80px); opacity: 0.7;"></div>
+            <span style="font-family: var(--font-ui); font-size: 0.68rem; font-weight: 500; color: var(--navy);">0.65s</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <span style="font-family: var(--font-ui); font-size: 0.68rem; color: var(--muted); min-width: 200px;">Menu panels / Sheet open</span>
+            <div style="height: 4px; background: var(--navy); border-radius: 2px; width: calc(0.8 * 80px); opacity: 0.7;"></div>
+            <span style="font-family: var(--font-ui); font-size: 0.68rem; font-weight: 500; color: var(--navy);">0.8s</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════ 05 — COMPONENTS ══════════════════════════════ -->
+
+  <section class="section" id="components">
+    <div class="page-wrapper" style="padding: 0;">
+
+      <div class="section-header">
+        <div>
+          <div class="section-number">05</div>
+          <h2 class="section-title">Components</h2>
+        </div>
+        <p class="section-description">
+          Eight discrete components, each with a single defined responsibility. No component duplicates the behavior of another. States are explicit and exhaustive.
+        </p>
+      </div>
+
+      <div class="components-list">
+
+        <!-- 1. Cursor Dot -->
+        <div class="component-card">
+          <div>
+            <div class="component-index">Component 01</div>
+            <div class="component-name">Cursor Dot</div>
+          </div>
+          <div>
+            <p class="component-description">
+              A 20px white circle that follows the mouse with a deliberate 0.15s lag. Uses <code style="font-family: var(--font-ui); font-size: 0.82rem;">mix-blend-mode: difference</code> to invert all colors it touches — functioning as both cursor and active visual element. On hover of interactive elements, expands to 48px with a smooth ease.
+            </p>
+            <div class="component-states">
+              <span class="state-tag">Default — 20px</span>
+              <span class="state-tag">Hovering — 48px</span>
+              <span class="state-tag">mix-blend-mode: difference</span>
+            </div>
+            <div class="component-specs">
+              <div class="spec-line"><strong>Size default:</strong> 20px × 20px · border-radius: 50%</div>
+              <div class="spec-line"><strong>Size hover:</strong> 48px × 48px</div>
+              <div class="spec-line"><strong>Color:</strong> white (inverted via blend mode)</div>
+              <div class="spec-line"><strong>Position:</strong> fixed, z-index: highest layer</div>
+              <div class="spec-line"><strong>Transition:</strong> GSAP quickTo, duration 0.15s, power2</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Header -->
+        <div class="component-card">
+          <div>
+            <div class="component-index">Component 02</div>
+            <div class="component-name">Header</div>
+          </div>
+          <div>
+            <p class="component-description">
+              Fixed to the top of the viewport across all pages. Contains three elements: avatar (clickable, opens modal) left-aligned; "AVAILABLE FOR WORK" label centered, which hides on scroll down and letter-reveals on scroll up; navigation menu toggle right-aligned.
+            </p>
+            <div class="component-states">
+              <span class="state-tag">Default</span>
+              <span class="state-tag">Scrolled down — text hidden</span>
+              <span class="state-tag">Scrolled up — text visible</span>
+            </div>
+            <div class="component-specs">
+              <div class="spec-line"><strong>Position:</strong> fixed top: 0, width: 100%</div>
+              <div class="spec-line"><strong>Center text:</strong> Roboto 400 · uppercase · letter-spacing 0.1em</div>
+              <div class="spec-line"><strong>Scroll threshold:</strong> 50px before text hides</div>
+              <div class="spec-line"><strong>Animation:</strong> per-letter fade + slide</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Navigation Menu -->
+        <div class="component-card">
+          <div>
+            <div class="component-index">Component 03</div>
+            <div class="component-name">Navigation Menu</div>
+          </div>
+          <div>
+            <p class="component-description">
+              Full-screen overlay triggered by the header toggle. Three layered panels slide in from the right with staggered expo.out timing. Navigation links appear with a cascading fade-up stagger. Dismisses on ESC key or navigation link click.
+            </p>
+            <div class="component-states">
+              <span class="state-tag">Closed</span>
+              <span class="state-tag">Opening — panels stagger</span>
+              <span class="state-tag">Open — links visible</span>
+              <span class="state-tag">Closing — reverse</span>
+            </div>
+            <div class="component-specs">
+              <div class="spec-line"><strong>Panels:</strong> 3 · slide from right · expo.out 0.8s · stagger 0.15s</div>
+              <div class="spec-line"><strong>Links:</strong> fade + slide up · power3.out 0.6s · stagger 0.08s</div>
+              <div class="spec-line"><strong>Dismiss:</strong> ESC key or link click</div>
+              <div class="spec-line"><strong>Close animation:</strong> timeline.reverse()</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Project List Item -->
+        <div class="component-card">
+          <div>
+            <div class="component-index">Component 04</div>
+            <div class="component-name">Project List Item</div>
+          </div>
+          <div>
+            <p class="component-description">
+              A horizontal row in a 4-column grid: year / title / company / skills. On container hover, all sibling rows dim to opacity 0.3 while the hovered row stays at 1. Simultaneously, the page background transitions to the project's theme color. Dividers dim to translucent.
+            </p>
+            <div class="component-states">
+              <span class="state-tag">Default — all visible</span>
+              <span class="state-tag">Spotlight active — siblings 0.3</span>
+              <span class="state-tag">This item — opacity 1.0</span>
+            </div>
+            <div class="component-specs">
+              <div class="spec-line"><strong>Grid:</strong> 4 columns — year / title / company / skills</div>
+              <div class="spec-line"><strong>Spotlight transition:</strong> opacity 0.3s ease-in-out</div>
+              <div class="spec-line"><strong>Background shift:</strong> body.backgroundColor · 0.6s ease</div>
+              <div class="spec-line"><strong>Dividers:</strong> navy → translucent on spotlight</div>
+              <div class="spec-line"><strong>Row gap:</strong> 30px</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Case Study Bottom Sheet -->
+        <div class="component-card">
+          <div>
+            <div class="component-index">Component 05</div>
+            <div class="component-name">Case Study<br>Bottom Sheet</div>
+          </div>
+          <div>
+            <p class="component-description">
+              A full-height panel anchored to the bottom of the viewport that slides upward on project click. Contains a navy header (Oswald title + blue info bar), followed by a cream body with long scrollable content, video autoplay loop, and screenshots. A secondary Lenis instance handles internal scroll. The close button (X) inverts its colors as content scrolls beneath it.
+            </p>
+            <div class="component-states">
+              <span class="state-tag">Closed — translateY(100%)</span>
+              <span class="state-tag">Opening — expo.out 0.8s</span>
+              <span class="state-tag">Open — scroll active</span>
+              <span class="state-tag">Closing — expo.in 0.65s</span>
+            </div>
+            <div class="component-specs">
+              <div class="spec-line"><strong>Open:</strong> translateY(100%) → 0 · expo.out · 0.8s</div>
+              <div class="spec-line"><strong>Close:</strong> 0 → translateY(100%) · expo.in · 0.65s</div>
+              <div class="spec-line"><strong>Header:</strong> background #12152A · Oswald title</div>
+              <div class="spec-line"><strong>Info bar:</strong> background #A5C7EA</div>
+              <div class="spec-line"><strong>Body:</strong> background #FFFEF8 · Roboto 300</div>
+              <div class="spec-line"><strong>Scroll:</strong> secondary Lenis instance</div>
+              <div class="spec-line"><strong>Close btn:</strong> inverts at header scroll threshold</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Avatar Modal -->
+        <div class="component-card">
+          <div>
+            <div class="component-index">Component 06</div>
+            <div class="component-name">Avatar Modal</div>
+          </div>
+          <div>
+            <p class="component-description">
+              A centered lightbox that appears on avatar click. Contains a circular portrait photo. The backdrop uses blur. Entry and exit use a scale + opacity GSAP animation. Closes on ESC key or overlay click.
+            </p>
+            <div class="component-states">
+              <span class="state-tag">Closed</span>
+              <span class="state-tag">Opening — scale + opacity in</span>
+              <span class="state-tag">Open</span>
+              <span class="state-tag">Closing — scale + opacity out</span>
+            </div>
+            <div class="component-specs">
+              <div class="spec-line"><strong>Photo:</strong> circular · border-radius: 50%</div>
+              <div class="spec-line"><strong>Backdrop:</strong> backdrop-filter: blur</div>
+              <div class="spec-line"><strong>Animation:</strong> GSAP · scale + opacity</div>
+              <div class="spec-line"><strong>Dismiss:</strong> ESC or overlay click</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Toggle Switch -->
+        <div class="component-card">
+          <div>
+            <div class="component-index">Component 07</div>
+            <div class="component-name">Toggle Switch</div>
+          </div>
+          <div>
+            <p class="component-description">
+              A pill-shaped toggle with two options: "Personal" and "Real cases". The active state fills the pill background with navy. Currently not visible in the interface (display: none) — reserved for a future filter feature.
+            </p>
+            <div class="component-states">
+              <span class="state-tag">Personal — active</span>
+              <span class="state-tag">Real cases — active</span>
+              <span class="state-tag">Hidden — display: none</span>
+            </div>
+            <div class="component-specs">
+              <div class="spec-line"><strong>Shape:</strong> pill · border-radius: full</div>
+              <div class="spec-line"><strong>Active state:</strong> background #12152A · text cream</div>
+              <div class="spec-line"><strong>Inactive state:</strong> transparent · text muted</div>
+              <div class="spec-line"><strong>Status:</strong> display: none — pending activation</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Hero Section -->
+        <div class="component-card">
+          <div>
+            <div class="component-index">Component 08</div>
+            <div class="component-name">Hero Section</div>
+          </div>
+          <div>
+            <p class="component-description">
+              The opening section of the home page. Oswald display title in uppercase with fluid clamp sizing, followed by a Roboto 300 description paragraph. Horizontally centered. No background deviation from the page cream — the content stands alone.
+            </p>
+            <div class="component-states">
+              <span class="state-tag">Static — no animation on load</span>
+            </div>
+            <div class="component-specs">
+              <div class="spec-line"><strong>Title:</strong> Oswald 300 · uppercase · clamp(2.5rem, 8vw, 5rem)</div>
+              <div class="spec-line"><strong>Description:</strong> Roboto 300 · clamp(14px, 1.4vw, 18.53px)</div>
+              <div class="spec-line"><strong>Alignment:</strong> centered</div>
+              <div class="spec-line"><strong>Background:</strong> #FFFEF8 (same as page)</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ══════════════════════════════ 06 — MICROINTERACTIONS ══════════════════════════════ -->
+
+  <section class="section" id="microinteractions">
+    <div class="page-wrapper" style="padding: 0;">
+
+      <div class="section-header">
+        <div>
+          <div class="section-number">06</div>
+          <h2 class="section-title">Micro&shy;interactions</h2>
+        </div>
+        <p class="section-description">
+          Thirteen distinct interaction moments. Each one is a contract between the interface and the user — an answer to an action, with precise timing and intent. None of them are decorative; all of them are functional.
+        </p>
+      </div>
+
+      <div class="interactions-list">
+
+        <div class="interaction-row">
+          <span class="interaction-number">01</span>
+          <span class="interaction-name">Cursor Dot Tracking</span>
+          <div class="interaction-trigger">
+            <strong>Trigger</strong>
+            mousemove anywhere on the page
+          </div>
+          <div class="interaction-values">
+            <strong>Values</strong>
+            GSAP quickTo · 0.15s · power2<br>
+            Smooth positional lag — deliberate, not incidental
+          </div>
+        </div>
+
+        <div class="interaction-row">
+          <span class="interaction-number">02</span>
+          <span class="interaction-name">Cursor Expand on Hover</span>
+          <div class="interaction-trigger">
+            <strong>Trigger</strong>
+            mouseenter on any interactive element (links, buttons, project rows)
+          </div>
+          <div class="interaction-values">
+            <strong>Values</strong>
+            20px → 48px · 0.3s · power2.out<br>
+            Reverses on mouseleave
+          </div>
+        </div>
+
+        <div class="interaction-row">
+          <span class="interaction-number">03</span>
+          <span class="interaction-name">mix-blend-mode Inversion</span>
+          <div class="interaction-trigger">
+            <strong>Trigger</strong>
+            cursor overlaps any element
+          </div>
+          <div class="interaction-values">
+            <strong>Values</strong>
+            mix-blend-mode: difference (CSS, always active)<br>
+            White cursor inverts underlying colors — text, images, backgrounds
+          </div>
+        </div>
+
+        <div class="interaction-row">
+          <span class="interaction-number">04</span>
+          <span class="interaction-name">Project Spotlight</span>
+          <div class="interaction-trigger">
+            <strong>Trigger</strong>
+            mouseenter on project list container
+          </div>
+          <div class="interaction-values">
+            <strong>Values</strong>
+            All rows: opacity → 0.3<br>
+            Hovered row: opacity → 1.0<br>
+            Transition: 0.3s ease-in-out
+          </div>
+        </div>
+
+        <div class="interaction-row">
+          <span class="interaction-number">05</span>
+          <span class="interaction-name">Background Color Shift</span>
+          <div class="interaction-trigger">
+            <strong>Trigger</strong>
+            mouseenter on specific project row
+          </div>
+          <div class="interaction-values">
+            <strong>Values</strong>
+            body.backgroundColor → project theme color<br>
+            transition: 0.6s ease<br>
+            Resets to #FFFEF8 on mouseleave
+          </div>
+        </div>
+
+        <div class="interaction-row">
+          <span class="interaction-number">06</span>
+          <span class="interaction-name">Lenis Smooth Scroll</span>
+          <div class="interaction-trigger">
+            <strong>Trigger</strong>
+            any scroll event (wheel, touch, keyboard)
+          </div>
+          <div class="interaction-values">
+            <strong>Values</strong>
+            lerp: 0.1 · wheelMultiplier: 0.7<br>
+            Page momentum lingers — sensation of mass in motion
+          </div>
+        </div>
+
+        <div class="interaction-row">
+          <span class="interaction-number">07</span>
+          <span class="interaction-name">Menu Open</span>
+          <div class="interaction-trigger">
+            <strong>Trigger</strong>
+            click on header toggle button
+          </div>
+          <div class="interaction-values">
+            <strong>Values</strong>
+            3 panels: slide right → in · expo.out · 0.8s · stagger 0.15s<br>
+            Links: fade + slide up · power3.out · 0.6s · stagger 0.08s
+          </div>
+        </div>
+
+        <div class="interaction-row">
+          <span class="interaction-number">08</span>
+          <span class="interaction-name">Menu Close</span>
+          <div class="interaction-trigger">
+            <strong>Trigger</strong>
+            click outside, ESC key, or navigation link click
+          </div>
+          <div class="interaction-values">
+            <strong>Values</strong>
+            GSAP timeline.reverse()<br>
+            Panels exit in reverse stagger order
+          </div>
+        </div>
+
+        <div class="interaction-row">
+          <span class="interaction-number">09</span>
+          <span class="interaction-name">Header Text Reveal / Hide</span>
+          <div class="interaction-trigger">
+            <strong>Trigger</strong>
+            scroll down &gt; 50px → hide<br>
+            scroll up → reveal
+          </div>
+          <div class="interaction-values">
+            <strong>Values</strong>
+            Per-letter animation — hide: slide up + fade<br>
+            Reveal: staggered slide down + fade in<br>
+            Creates textual presence that responds to reading intent
+          </div>
+        </div>
+
+        <div class="interaction-row">
+          <span class="interaction-number">10</span>
+          <span class="interaction-name">Case Sheet Open</span>
+          <div class="interaction-trigger">
+            <strong>Trigger</strong>
+            click on CRM project row
+          </div>
+          <div class="interaction-values">
+            <strong>Values</strong>
+            translateY(100%) → 0 · expo.out · 0.8s<br>
+            Secondary Lenis instance initializes on complete
+          </div>
+        </div>
+
+        <div class="interaction-row">
+          <span class="interaction-number">11</span>
+          <span class="interaction-name">Case Sheet Close</span>
+          <div class="interaction-trigger">
+            <strong>Trigger</strong>
+            click X button, ESC key
+          </div>
+          <div class="interaction-values">
+            <strong>Values</strong>
+            0 → translateY(100%) · expo.in · 0.65s<br>
+            Scroll resets to 0 · Secondary Lenis destroyed
+          </div>
+        </div>
+
+        <div class="interaction-row">
+          <span class="interaction-number">12</span>
+          <span class="interaction-name">Close Button Inversion</span>
+          <div class="interaction-trigger">
+            <strong>Trigger</strong>
+            sheet content scrolls past header zone
+          </div>
+          <div class="interaction-values">
+            <strong>Values</strong>
+            Navy background → cream background<br>
+            Cream text → navy text<br>
+            Maintains legibility across both dark and light zones
+          </div>
+        </div>
+
+        <div class="interaction-row">
+          <span class="interaction-number">13</span>
+          <span class="interaction-name">Video Autoplay Loop</span>
+          <div class="interaction-trigger">
+            <strong>Trigger</strong>
+            page load / sheet open
+          </div>
+          <div class="interaction-values">
+            <strong>Values</strong>
+            autoplay · loop · muted · playsinline<br>
+            .mov format · no controls · functions as animated gif<br>
+            Seamless, unattended demonstration
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider divider--full"></div>
+
+  <!-- ══════════════════════════════ FOOTER ══════════════════════════════ -->
+
+  <footer class="footer">
+    <div class="footer-left">Victoria<br>Arenque</div>
+    <div class="footer-right">
+      <span>Design System & Specs</span>
+      <span>Version 1.0 — 2024</span>
+      <span style="margin-top: 12px; opacity: 0.5; font-size: 0.6rem;">Oswald · Roboto · Inter</span>
+      <span style="opacity: 0.5; font-size: 0.6rem;">GSAP · Lenis · Vanilla JS</span>
+    </div>
+  </footer>
+
+  <script>
+    function copyHex(el, hex) {
+      navigator.clipboard.writeText(hex).then(() => {
+        el.classList.add('copied');
+        setTimeout(() => el.classList.remove('copied'), 1400);
+      }).catch(() => {
+        // fallback for older browsers
+        const ta = document.createElement('textarea');
+        ta.value = hex;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        el.classList.add('copied');
+        setTimeout(() => el.classList.remove('copied'), 1400);
+      });
+    }
+  </script>
+
+</body>
+</html>

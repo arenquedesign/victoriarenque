@@ -73,7 +73,7 @@
 
       <!-- Direita: Botão Resume (link externo) -->
       <div class="header__actions">
-        <a href="#resume" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
+        <a href="https://docs.google.com/document/d/1KhdpkfSknPl3SOhyJ8ta5cRtqjFlJR42un0KvY2r5xE/edit?usp=sharing" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
           <span class="btn__text">Resume</span>
           <span class="btn__icon">
             <!-- Ícone: external link (SVG inline) -->
@@ -346,7 +346,7 @@
             <!-- Company: flex:1 (cresce) -->
             <div class="case-sheet__info-item case-sheet__info-item--fill">
               <span class="case-sheet__info-label">Company</span>
-              <span class="case-sheet__info-value">QuintoAndar, Brazil&#8217;s largest housing platform (unicorn, 4k+ employees)</span>
+              <span class="case-sheet__info-value">QuintoAndar, housing platform (unicorn, 4k+ employees)</span>
             </div>
 
             <!-- Role: 216px fixo -->
@@ -549,6 +549,187 @@
       </div><!-- /.case-sheet__scroll-content -->
     </div><!-- /.case-sheet__scroll -->
   </div><!-- /.case-sheet -->
+
+
+  <!-- =============================================
+       COMPONENT: Case Study Bottom Sheet — Case #2
+       Description: Painel deslizante para "Feedback in app: efficiency with AI".
+                    Mesma estrutura do #caseSheet, com tema verde (year2023).
+                    Header: #103214 | Accent: #B0FFB5
+       Trigger: click no project-item[data-theme="year2023"]
+       Z-index: 2000
+  ============================================= -->
+  <div class="case-sheet case-sheet--year2023" id="caseSheet2" aria-hidden="true" role="dialog" aria-label="Case study: Feedback in app: efficiency with AI" aria-modal="true">
+
+    <button class="case-sheet__close" id="caseSheet2Close" aria-label="Fechar case study">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="case-sheet__scroll">
+      <div class="case-sheet__scroll-content">
+
+        <div class="case-sheet__header">
+
+          <div class="case-sheet__title-area">
+            <h2 class="case-sheet__title">Feedback in app: efficiency with AI</h2>
+            <span class="case-sheet__year">2023</span>
+          </div>
+
+          <div class="case-sheet__info-bar">
+
+            <div class="case-sheet__info-item case-sheet__info-item--fill">
+              <span class="case-sheet__info-label">Company</span>
+              <span class="case-sheet__info-value">Mercado Libre, marketplace and fintech (big tech, 70K+ employees)</span>
+            </div>
+
+            <div class="case-sheet__info-item case-sheet__info-item--role">
+              <span class="case-sheet__info-label">Role</span>
+              <span class="case-sheet__info-value">Product Designer</span>
+            </div>
+
+            <div class="case-sheet__info-item case-sheet__info-item--fill">
+              <span class="case-sheet__info-label">Squad</span>
+              <span class="case-sheet__info-value">Product Manager, Tech Lead, Data engineers, Product Designer</span>
+            </div>
+
+            <div class="case-sheet__info-item case-sheet__info-item--stakeholders">
+              <span class="case-sheet__info-label">Main Stakeholders</span>
+              <span class="case-sheet__info-value">UX Team</span>
+            </div>
+
+          </div>
+        </div><!-- /.case-sheet__header -->
+
+        <div class="case-sheet__body">
+
+          <div class="case-sheet__content">
+
+            <!-- Row: Context -->
+            <div class="case-sheet__row">
+              <span class="case-sheet__row-label">context</span>
+              <p class="case-sheet__row-text">The manual analysis process of the FIA (always-on survey for Individual Consumers) was inefficient. It required 11 days of UX work, limited the analysis to samples of detractors, and fragmented the work across multiple tools, delaying decisions.</p>
+            </div>
+
+            <!-- Row: Design Opportunity -->
+            <div class="case-sheet__row">
+              <span class="case-sheet__row-label">design opportunity</span>
+              <div class="case-sheet__row-text">
+                <p>Scale access to and analysis of FIA data to:</p>
+                <ul class="case-sheet__list">
+                  <li>Reduce operational burden and increase resources for strategic analysis.</li>
+                  <li>Analyze all responses and provide real time reports.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Row: Impacts -->
+            <div class="case-sheet__row">
+              <span class="case-sheet__row-label">impacts</span>
+              <ul class="case-sheet__row-text case-sheet__list">
+                <li><strong>Influence:</strong> Faster mapping of opportunities, elevating the weight of UX in quarterly decisions.</li>
+                <li><strong>Strategy:</strong> Research insights guided high-impact initiatives, such as the redesign of payment flows.</li>
+                <li><strong>Efficiency:</strong> Reduction of operational load; the focus shifted from data collection to analysis and solution proposal.</li>
+                <li><strong>Data-Driven Culture:</strong> The dashboard empowered stakeholders to consult ad hoc data, strengthening the evidence-based culture.</li>
+              </ul>
+            </div>
+
+            <!-- Row: Long Term -->
+            <div class="case-sheet__row">
+              <span class="case-sheet__row-label">long term</span>
+              <p class="case-sheet__row-text">Starting in 2024, the team no longer had dedicated resources for the quarterly analysis of the FIA, as the data is automated and accessible to the entire team at all times. The focus shifted to investigating underlying causes (e.g., what turns promoters into detractors).</p>
+            </div>
+
+            <!-- Section Header: Project Outlook -->
+            <div class="case-sheet__section-header case-sheet__section-header--large">
+              <h3 class="case-sheet__section-title">Project outlook</h3>
+            </div>
+
+            <!-- Demo: Survey dashboard com vídeo sobreposto no mockup do phone -->
+            <div class="case-sheet__demo case-sheet__demo--top case-sheet__demo--bottom">
+              <div class="case2-demo-wrapper">
+                <img src="images/case2-product-demo.png" alt="FIA survey dashboard — Feedback in app overview">
+                <video class="case2-phone-video"
+                       src="images/feedback in app.mov"
+                       autoplay loop muted playsinline
+                       aria-hidden="true"></video>
+              </div>
+              <p class="case-sheet__demo-caption">Our survey collected over 30,000 responses every 3 months from users in Argentina, Brazil, and Mexico.</p>
+            </div>
+
+            <!-- Row: What Guided Us -->
+            <div class="case-sheet__row">
+              <span class="case-sheet__row-label">what guided us</span>
+              <p class="case-sheet__row-text">The UX team from Mercado Pago&#8217;s Collections automated the analysis of the Feedback in app survey in collaboration with the data science team, enhancing our dashboard with artificial intelligence. The goal was to transform the data analysis&#8212;previously manual and time-consuming&#8212;into an agile and strategic process. The result was the creation of a dashboard in Looker that uses machine learning (NLP&#8202;&#8203;&#8212;&#8202;BERT) to classify and analyze user comments in real time.</p>
+            </div>
+
+            <!-- Demo: Overall goal image -->
+            <div class="case-sheet__demo case-sheet__demo--bottom">
+              <img src="images/case2-process-demo.png" alt="FIA process demo — overall goal of the delivery">
+              <p class="case-sheet__demo-caption">The overall goal of the delivery was to reduce the operational burden on the team and increase the strategic influence of UX in prioritizing initiatives.</p>
+            </div>
+
+            <!-- Section Header: Design & Test -->
+            <div class="case-sheet__section-header">
+              <h3 class="case-sheet__section-title">Design &amp; test</h3>
+              <span class="case-sheet__section-subtitle">My role at the project</span>
+            </div>
+
+            <!-- Screenshots do processo: imagem já tem 50px de transparência embutida no topo/base -->
+            <div class="case-sheet__screenshots case-sheet__screenshots--no-pad">
+              <img src="images/case2-screenshots.png" alt="Process screenshots — wireframes e protótipos do dashboard">
+            </div>
+
+            <!-- Row: UX Process -->
+            <div class="case-sheet__row">
+              <span class="case-sheet__row-label">UX process</span>
+              <div class="case-sheet__row-text">
+                <p>The development of the Dashboard followed an agile collaboration, culminating in a solution in Looker:</p>
+                <ul class="case-sheet__list">
+                  <li>Presentation of UX pain points to the Data Science team.</li>
+                  <li>Creation of drafts and voting to define the most valuable and feasible features.</li>
+                  <li>Support for building the dashboard, with decision-making on data visualization.</li>
+                  <li>Understanding tests with internal volunteers.</li>
+                  <li>Fostering a data-driven culture within the team through presentations and the use of data to map opportunities.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Row: Experiment with Notion AI -->
+            <div class="case-sheet__row">
+              <span class="case-sheet__row-label">experiment with Notion AI</span>
+              <p class="case-sheet__row-text">The experiment with Notion&#8217;s AI in Q2/2023 demonstrated the feasibility of a general and quick analysis of comments, validating the approach for developing the permanent ML solution. This proof of concept was crucial for the investment decision in full automation.</p>
+            </div>
+
+            <!-- Demo: Notion analysis screenshot -->
+            <div class="case-sheet__demo case-sheet__demo--bottom">
+              <img src="images/case2-notion-demo.png" alt="Notion AI analysis — data flow from macro to micro">
+              <p class="case-sheet__demo-caption">The data analysis flow with Notion went from macro to micro, with methods to evaluate the consistency of AI responses.</p>
+            </div>
+
+            <!-- Section Header: Learnings -->
+            <div class="case-sheet__section-header">
+              <h3 class="case-sheet__section-title">Learnings</h3>
+            </div>
+
+            <!-- Row: Skills Sharpened -->
+            <div class="case-sheet__row">
+              <span class="case-sheet__row-label">Skills sharpened</span>
+              <ul class="case-sheet__row-text case-sheet__list">
+                <li>Cross-functional leadership and strategic alignment</li>
+                <li>Systemic design and platform strategic thinking</li>
+                <li>Depth of research and qualitative analysis</li>
+              </ul>
+            </div>
+
+          </div><!-- /.case-sheet__content -->
+        </div><!-- /.case-sheet__body -->
+
+      </div><!-- /.case-sheet__scroll-content -->
+    </div><!-- /.case-sheet__scroll -->
+  </div><!-- /.case-sheet--year2023 -->
 
 
   <!-- =============================================
