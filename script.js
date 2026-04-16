@@ -38,6 +38,7 @@
 // Instâncias secundárias para os case sheets — declaradas aqui para o RAF ter acesso
 let lenisCaseSheet  = null;  // Case #1: CRM (year2022)
 let lenisCaseSheet2 = null;  // Case #2: Feedback in app (year2023)
+let lenisCaseSheet3 = null;  // Case #3: From a new offer to a complete redesign (year2024)
 
 // Instância principal do scroll da home page
 const lenis = new Lenis({
@@ -57,6 +58,7 @@ function raf(time) {
   lenis.raf(time);
   if (lenisCaseSheet)  lenisCaseSheet.raf(time);
   if (lenisCaseSheet2) lenisCaseSheet2.raf(time);
+  if (lenisCaseSheet3) lenisCaseSheet3.raf(time);
   requestAnimationFrame(raf);
 }
 
@@ -739,5 +741,120 @@ document.addEventListener('DOMContentLoaded', () => {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && isSheet2Open) closeSheet2();
   });
+
+});
+
+
+/* ============================================
+   MÓDULO 11: Case Study Bottom Sheet — Case #3
+   "From a new offer to a complete redesign" (year2024)
+
+   Mesmo padrão do Módulo 10, com:
+     #caseSheet3        — container do painel
+     #caseSheet3Close   — botão fechar
+     .project-item[data-theme="year2024"] — dispara abertura
+     lenisCaseSheet3    — Lenis secundário para scroll interno
+   Inclui lógica do carrossel antes/depois (prev/next).
+============================================ */
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  const caseSheet3      = document.getElementById('caseSheet3');
+  const caseSheet3Close = document.getElementById('caseSheet3Close');
+  const designProject   = document.querySelector('.project-item[data-theme="year2024"]');
+
+  if (!caseSheet3 || !designProject) return;
+
+  const sheet3Scroll        = caseSheet3.querySelector('.case-sheet__scroll');
+  const sheet3ScrollContent = caseSheet3.querySelector('.case-sheet__scroll-content');
+  const sheet3Header        = caseSheet3.querySelector('.case-sheet__header');
+
+  lenisCaseSheet3 = new Lenis({
+    wrapper:            sheet3Scroll,
+    content:            sheet3ScrollContent,
+    lerp:               0.1,
+    wheelMultiplier:    0.7,
+    gestureOrientation: 'vertical',
+    normalizeWheel:     false,
+    smoothTouch:        false
+  });
+
+  lenisCaseSheet3.stop();
+
+  let isSheet3Open = false;
+  let isAnimating3 = false;
+
+  function openSheet3() {
+    if (isAnimating3 || isSheet3Open) return;
+    isAnimating3 = true;
+    isSheet3Open = true;
+
+    caseSheet3.setAttribute('aria-hidden', 'false');
+    lenis.stop();
+    lenisCaseSheet3.start();
+
+    gsap.to(caseSheet3, {
+      y:        0,
+      duration: 0.8,
+      ease:     'expo.out',
+      onComplete: () => { isAnimating3 = false; }
+    });
+  }
+
+  function closeSheet3() {
+    if (isAnimating3 || !isSheet3Open) return;
+    isAnimating3 = true;
+    isSheet3Open = false;
+
+    gsap.to(caseSheet3, {
+      y:        '100%',
+      duration: 0.65,
+      ease:     'expo.in',
+      onComplete: () => {
+        caseSheet3.setAttribute('aria-hidden', 'true');
+        lenisCaseSheet3.stop();
+        lenisCaseSheet3.scrollTo(0, { immediate: true });
+        caseSheet3Close.classList.remove('case-sheet__close--inverted');
+        lenis.start();
+        isAnimating3 = false;
+      }
+    });
+  }
+
+  lenisCaseSheet3.on('scroll', ({ scroll }) => {
+    const threshold = sheet3Header.offsetHeight - 55;
+    if (scroll >= threshold) {
+      caseSheet3Close.classList.add('case-sheet__close--inverted');
+    } else {
+      caseSheet3Close.classList.remove('case-sheet__close--inverted');
+    }
+  });
+
+  designProject.addEventListener('click', openSheet3);
+  caseSheet3Close.addEventListener('click', closeSheet3);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isSheet3Open) closeSheet3();
+  });
+
+  // Carrossel antes/depois — botões prev/next movem por card
+  const carouselTrack = document.getElementById('caseSheet3CarouselTrack');
+  const prevBtn       = document.getElementById('caseSheet3CarouselPrev');
+  const nextBtn       = document.getElementById('caseSheet3CarouselNext');
+
+  if (carouselTrack && prevBtn && nextBtn) {
+    const getCardWidth = () => {
+      const card = carouselTrack.querySelector('.case3-carousel__card');
+      return card ? card.offsetWidth + 20 : 600; // largura do card + gap
+    };
+
+    prevBtn.addEventListener('click', () => {
+      carouselTrack.scrollBy({ left: -getCardWidth(), behavior: 'smooth' });
+    });
+
+    nextBtn.addEventListener('click', () => {
+      carouselTrack.scrollBy({ left: getCardWidth(), behavior: 'smooth' });
+    });
+  }
 
 });

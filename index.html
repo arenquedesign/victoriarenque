@@ -733,6 +733,269 @@
 
 
   <!-- =============================================
+       COMPONENT: Case Study Bottom Sheet — Case #3
+       Description: Painel deslizante para "From a new offer to a complete redesign".
+                    Mesmo padrão do #caseSheet2, com tema terracota (year2024).
+                    Header: #813321 | Accent: #F7E9D0
+       Trigger: click no project-item[data-theme="year2024"]
+       Z-index: 2000
+  ============================================= -->
+  <div class="case-sheet case-sheet--year2024" id="caseSheet3" aria-hidden="true" role="dialog" aria-label="Case study: From a new offer to a complete redesign" aria-modal="true">
+
+    <button class="case-sheet__close" id="caseSheet3Close" aria-label="Fechar case study">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="case-sheet__scroll">
+      <div class="case-sheet__scroll-content">
+
+        <div class="case-sheet__header">
+
+          <div class="case-sheet__title-area">
+            <h2 class="case-sheet__title">From a new offer, to redesign</h2>
+            <span class="case-sheet__year">2024</span>
+          </div>
+
+          <div class="case-sheet__info-bar">
+
+            <div class="case-sheet__info-item case-sheet__info-item--fill">
+              <span class="case-sheet__info-label">Company</span>
+              <span class="case-sheet__info-value">Mercado Libre, marketplace and fintech (big tech, 60K+ employees)</span>
+            </div>
+
+            <div class="case-sheet__info-item case-sheet__info-item--role">
+              <span class="case-sheet__info-label">Role</span>
+              <span class="case-sheet__info-value">Product Designer</span>
+            </div>
+
+            <div class="case-sheet__info-item case-sheet__info-item--fill">
+              <span class="case-sheet__info-label">Squad</span>
+              <span class="case-sheet__info-value">Product Manager, UX Project Lead, Content Designer, Product Designer</span>
+            </div>
+
+            <div class="case-sheet__info-item case-sheet__info-item--stakeholders">
+              <span class="case-sheet__info-label">Main Stakeholders</span>
+              <span class="case-sheet__info-value">UX Director and Sr Director</span>
+            </div>
+
+          </div>
+        </div><!-- /.case-sheet__header -->
+
+        <div class="case-sheet__body">
+
+          <!-- Phone mockup showcase: imagem composta com todas as telas do projeto -->
+          <div class="case3-phones">
+            <img src="images/case3-phones-mockup.png" alt="Project screens — credits admin redesign">
+          </div>
+
+          <div class="case-sheet__content">
+
+            <!-- Row: Context -->
+            <div class="case-sheet__row">
+              <span class="case-sheet__row-label">context</span>
+              <p class="case-sheet__row-text">The business team decided to extend the <em>Dinero Extra</em> offer (a one-time loan with payment due in up to 28 days) to our &#8220;individual&#8221; clients, expanding the portfolio of financial products in an admin designed exclusively for the Credit Line (credit limit for buy now pay later in the marketplace and personal loans, which can be paid in installments).</p>
+            </div>
+
+            <!-- Row: Design Opportunity -->
+            <div class="case-sheet__row">
+              <span class="case-sheet__row-label">design opportunity</span>
+              <p class="case-sheet__row-text">To envision a new story for the credit admin interface, so that users can take out loans and efficiently manage their debts, in a visually coherent interface.</p>
+            </div>
+
+            <!-- Row: Impacts -->
+            <div class="case-sheet__row">
+              <span class="case-sheet__row-label">impacts</span>
+              <ul class="case-sheet__row-text case-sheet__list">
+                <li>New credit product available for end users (over 18.1M hires, and counting)</li>
+                <li>Complete redesign of all screens in the credits admin</li>
+                <li>Drastic reduction of cognitive load on the application home page</li>
+              </ul>
+            </div>
+
+            <!-- Row: What Guided Us -->
+            <div class="case-sheet__row">
+              <span class="case-sheet__row-label">what guided us</span>
+              <p class="case-sheet__row-text">Keep it clean, keep it clear.</p>
+            </div>
+
+            <!-- Section Header: Project Outlook -->
+            <div class="case-sheet__section-header case-sheet__section-header--large">
+              <h3 class="case-sheet__section-title">Project outlook</h3>
+            </div>
+
+            <!-- Demo: Apresentação completa do processo de design (Google Slides embed) -->
+            <div class="case-sheet__demo case-sheet__demo--top case-sheet__demo--bottom">
+              <div class="case3-slides-wrapper">
+                <iframe
+                  src="https://docs.google.com/presentation/d/1mdQFclEblCkm3pJQ4_qnOtRy2V0iE6I9/embed?start=false&loop=false&delayms=3000"
+                  allowfullscreen
+                  title="Complete presentation with details of the design process and the results of the final delivery"
+                ></iframe>
+              </div>
+              <p class="case-sheet__demo-caption">Complete presentation with details of the design process and the results of the final delivery.</p>
+            </div>
+
+            <!-- Section Header: Design & Test -->
+            <div class="case-sheet__section-header">
+              <h3 class="case-sheet__section-title">Design &amp; test</h3>
+              <span class="case-sheet__section-subtitle">My role at the project</span>
+            </div>
+
+            <!-- Row: UX Process -->
+            <div class="case-sheet__row">
+              <span class="case-sheet__row-label">UX Process</span>
+              <div class="case-sheet__row-text">
+                <p style="margin: 0 0 0.5em;">The analysis of the admin for implementing the new loan offer required:</p>
+                <ul class="case-sheet__list">
+                  <li>Empirical analysis of the scenario and structural possibilities</li>
+                  <li>Design critiques and alignment with UX tech leads</li>
+                  <li>Benchmarking to evaluate alternatives for presenting the user&#8217;s current debt</li>
+                  <li>Comparative mapping between the structures of Admin Consumers and Admin Merchants</li>
+                  <li>Content First workshop to define the information hierarchy on some screens of the flow</li>
+                  <li>Collaborative ideations with other designers on the team</li>
+                  <li>Technical feasibility validations with the development team</li>
+                </ul>
+                <p>Afterward, we initiated a recurring and unstructured ideation process to redefine the UI of each component of our Admin.</p>
+              </div>
+            </div>
+
+            <!-- Row: Usability Tests -->
+            <div class="case-sheet__row">
+              <span class="case-sheet__row-label">Usability tests</span>
+              <div class="case-sheet__row-text">
+                <p style="margin: 0 0 0.5em;">Usability testing of the new interface was led by the UX research team, with my support and active participation, to:</p>
+                <ul class="case-sheet__list">
+                  <li>Define the research plan</li>
+                  <li>Prepare interactive prototypes</li>
+                  <li>Observe the tests and subsequent work sessions to gather insights</li>
+                  <li>Iterate on the prototypes between rounds of testing</li>
+                  <li>Consolidate the results</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Row: Handoff -->
+            <div class="case-sheet__row">
+              <span class="case-sheet__row-label">HANDOFF</span>
+              <p class="case-sheet__row-text">The documentation of the final handoff was done for mobile and desktop, requiring the mapping of <strong>over 70 use cases</strong>, as the state of credit varies and behaves differently in each context.</p>
+            </div>
+
+            <!-- Carrossel antes/depois — 4 telas comparativas (Before vs After) -->
+            <div class="case3-carousel">
+              <div class="case3-carousel__nav">
+                <button class="case3-carousel__btn case3-carousel__btn--prev" id="caseSheet3CarouselPrev" aria-label="Previous comparison">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                  </svg>
+                </button>
+                <button class="case3-carousel__btn case3-carousel__btn--next" id="caseSheet3CarouselNext" aria-label="Next comparison">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                  </svg>
+                </button>
+              </div>
+              <div class="case3-carousel__track" id="caseSheet3CarouselTrack">
+
+                <!-- Card 1: Dashboard | L1 -->
+                <div class="case3-carousel__card case3-carousel__card--l1">
+                  <div class="case3-card__header">
+                    <p class="case3-card__title">Dashboard | L1</p>
+                    <p class="case3-card__subtitle">Admin Credits Home Screen</p>
+                  </div>
+                  <span class="case3-card__badge case3-card__badge--left">Before</span>
+                  <span class="case3-card__badge case3-card__badge--right">After</span>
+                  <div class="case3-card__img-frame case3-card__img-frame--left">
+                    <img src="images/case3-l1-before.png" alt="Dashboard before redesign">
+                  </div>
+                  <div class="case3-card__img-frame case3-card__img-frame--right case3-card__img-frame--light-bg">
+                    <img src="images/case3-l1-after.png" alt="Dashboard after redesign">
+                  </div>
+                </div>
+
+                <!-- Card 2: Payment Details | L2 -->
+                <div class="case3-carousel__card">
+                  <div class="case3-card__header">
+                    <p class="case3-card__title">Payment Details | L2</p>
+                    <p class="case3-card__subtitle">Screen for viewing the user&#8217;s monthly debt details</p>
+                  </div>
+                  <span class="case3-card__badge case3-card__badge--left">Before</span>
+                  <span class="case3-card__badge case3-card__badge--right">After</span>
+                  <div class="case3-card__img-frame case3-card__img-frame--left">
+                    <img src="images/case3-l2-payment-before.png" alt="Payment detail before redesign">
+                  </div>
+                  <div class="case3-card__img-frame case3-card__img-frame--right">
+                    <img src="images/case3-l2-payment-after.png" alt="Payment detail after redesign">
+                  </div>
+                </div>
+
+                <!-- Card 3: Active Credits | L2 -->
+                <div class="case3-carousel__card">
+                  <div class="case3-card__header">
+                    <p class="case3-card__title">Active Credits | L2</p>
+                    <p class="case3-card__subtitle">Screen for managing the user&#8217;s active loans</p>
+                  </div>
+                  <span class="case3-card__badge case3-card__badge--left">Before</span>
+                  <span class="case3-card__badge case3-card__badge--right">After</span>
+                  <div class="case3-card__img-frame case3-card__img-frame--left">
+                    <img src="images/case3-l2-credits-before.png" alt="Active credits before redesign">
+                  </div>
+                  <div class="case3-card__img-frame case3-card__img-frame--right">
+                    <img src="images/case3-l2-credits.png" alt="Active credits after redesign">
+                  </div>
+                </div>
+
+                <!-- Card 4: Loan Details | L3 -->
+                <div class="case3-carousel__card">
+                  <div class="case3-card__header">
+                    <p class="case3-card__title">Loan Details | L3</p>
+                    <p class="case3-card__subtitle">Screen for viewing and managing an active loan</p>
+                  </div>
+                  <span class="case3-card__badge case3-card__badge--left">Before</span>
+                  <span class="case3-card__badge case3-card__badge--right">After</span>
+                  <div class="case3-card__img-frame case3-card__img-frame--left">
+                    <img src="images/case3-l3-loan-before.png" alt="Loan detail before redesign">
+                  </div>
+                  <div class="case3-card__img-frame case3-card__img-frame--right">
+                    <img src="images/case3-l3-bnpl.png" alt="Loan detail after redesign">
+                  </div>
+                </div>
+
+              </div><!-- /.case3-carousel__track -->
+            </div><!-- /.case3-carousel -->
+
+            <!-- Demo: Screenshot do handoff -->
+            <div class="case-sheet__demo case-sheet__demo--bottom">
+              <img src="images/case3-handoff.png" alt="Handoff screenshot — number of use cases from a single screen of the flow">
+              <p class="case-sheet__demo-caption">Screenshot of the handoff, highlighting the number of use cases from a single screen of the flow.</p>
+            </div>
+
+            <!-- Section Header: Learnings -->
+            <div class="case-sheet__section-header">
+              <h3 class="case-sheet__section-title">Learnings</h3>
+            </div>
+
+            <!-- Row: Skills Sharpened -->
+            <div class="case-sheet__row">
+              <span class="case-sheet__row-label">Skills sharpened</span>
+              <ul class="case-sheet__row-text case-sheet__list">
+                <li>Resilience to adapt to changes in direction and priority</li>
+                <li>Holistic view of a complex financial product</li>
+                <li>Stakeholder management in a highly verticalized hierarchical structure</li>
+              </ul>
+            </div>
+
+          </div><!-- /.case-sheet__content -->
+        </div><!-- /.case-sheet__body -->
+
+      </div><!-- /.case-sheet__scroll-content -->
+    </div><!-- /.case-sheet__scroll -->
+  </div><!-- /.case-sheet--year2024 -->
+
+
+  <!-- =============================================
        COMPONENT: Custom Cursor Dot
        Description: Círculo customizado que segue o mouse.
                     Visível apenas em desktop com mouse real

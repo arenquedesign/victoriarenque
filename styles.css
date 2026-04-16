@@ -1093,6 +1093,239 @@ body[data-nav="open"] .nav-menu {
 }
 
 /* =============================================
+   Tema year2024 — Case #3: From a new offer to a complete redesign
+   Header: #813321 | Accent: #F7E9D0
+   ============================================= */
+.case-sheet--year2024 .case-sheet__header {
+  background-color: #813321;
+}
+
+.case-sheet--year2024 .case-sheet__title,
+.case-sheet--year2024 .case-sheet__year {
+  color: #F7E9D0;
+}
+
+.case-sheet--year2024 .case-sheet__info-bar {
+  background-color: #F7E9D0;
+}
+
+.case-sheet--year2024 .case-sheet__info-label,
+.case-sheet--year2024 .case-sheet__info-value {
+  color: #813321;
+}
+
+/* Botão fechar sobre o header terracota: bg accent, ícone dark */
+.case-sheet--year2024 .case-sheet__close {
+  background: #F7E9D0;
+  color: #813321;
+}
+
+/* Botão fechar sobre a área cream: inverte para terracota */
+.case-sheet--year2024 .case-sheet__close--inverted {
+  background: #813321;
+  color: #F7E9D0;
+}
+
+/* =============================================
+   Case #3 — Phone mockup showcase
+   Imagem composta única com todas as telas do projeto
+   ============================================= */
+.case3-phones {
+  padding: 60px 30px 0;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.case3-phones::-webkit-scrollbar {
+  display: none;
+}
+
+.case3-phones img {
+  display: block;
+  height: 540px;
+  width: auto;
+  max-width: none;
+}
+
+/* =============================================
+   Case #3 — Google Slides embed (responsivo 16:9)
+   ============================================= */
+.case3-slides-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.case3-slides-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* =============================================
+   Case #3 — Before/After Carousel
+   ============================================= */
+.case3-carousel {
+  padding: 50px 0 30px;
+}
+
+.case3-carousel__track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.case3-carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card: mesma estrutura do Figma — position relative, altura fixa, overflow hidden
+   Dimensões Figma: 664×878px
+   Colunas: left=8.58% (57/664) | right=53.92% (358/664) | width=37.46% (248.726/664)
+   Badge top: 13.28% (116.62/878) | Image top: 19.58% (171.9/878) */
+.case3-carousel__card {
+  position: relative;
+  flex-shrink: 0;
+  width: 664px;
+  height: 878px;
+  background-color: rgba(247, 233, 208, 0.3);
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+
+/* Header: título + subtítulo, absoluto no topo do card */
+.case3-card__header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 30px 17px 17px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 2;
+}
+
+.case3-card__title {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-semibold);
+  font-size: 1.4rem;
+  color: var(--color-sheet-text-dark);
+  margin: 0;
+  line-height: 1;
+}
+
+.case3-card__subtitle {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-regular);
+  font-size: 1rem;
+  color: var(--color-sheet-text-dark);
+  margin: 0;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Badges "Before" / "After" — absolute, posição Figma */
+.case3-card__badge {
+  position: absolute;
+  top: 13.28%;
+  width: 37.46%;
+  height: 37px;
+  background-color: #58595f;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 17px;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-semibold);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  z-index: 2;
+}
+
+.case3-card__badge--left  { left: 8.58%; }
+.case3-card__badge--right { left: 53.92%; }
+
+/* Frames das imagens — absolutos, overflow hidden (clip à altura do card)
+   top: 19.58% = 171.9px / 878px */
+.case3-card__img-frame {
+  position: absolute;
+  top: 19.58%;
+  bottom: 0;
+  width: 37.46%;
+  overflow: hidden;
+}
+
+.case3-card__img-frame--left  { left: 8.58%; }
+.case3-card__img-frame--right { left: 53.92%; }
+
+/* Card 1 "After": fundo cinza claro como no Figma (bg-[#f2f2f2]) */
+.case3-card__img-frame--light-bg { background-color: #f2f2f2; }
+
+/* Card 1 — frames com altura fixa 658px (Figma: h-[658px] + overflow-clip)
+   sem bottom:0 para não esticar além do que o Figma mostra */
+.case3-carousel__card--l1 .case3-card__img-frame {
+  height: 658px;
+  bottom: auto;
+}
+
+.case3-card__img-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Card 1 — imagens preenchem o frame com object-cover (Figma: object-cover size-full) */
+.case3-carousel__card--l1 .case3-card__img-frame img {
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.case3-carousel__nav {
+  display: flex;
+  gap: 10px;
+  padding: 0 0 20px;
+}
+
+.case3-carousel__btn {
+  width: 51px;
+  height: 51px;
+  border-radius: 25px;
+  background-color: #813321;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #F7E9D0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.case3-carousel__btn:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.case3-carousel__btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* =============================================
    Case #2 — Product demo: vídeo sobreposto no mockup do phone
    Coordenadas calculadas do Figma (frame 1301×697):
      "Feedback in app 1" rect: x=33.83 y=65.13 w=279.97 h=581.93
@@ -1126,11 +1359,11 @@ body[data-nav="open"] .nav-menu {
   padding: 0 var(--sheet-padding-h) var(--sheet-title-pb) var(--sheet-padding-h);
 }
 
-/* Título: Oswald Light, fluid clamp(2.5rem, 7vw, 7rem), uppercase, cor azul */
+/* Título: Oswald Light, fluid clamp(2.5rem, 5.5vw, 5.5rem), uppercase, cor azul */
 .case-sheet__title {
   font-family: var(--font-family-display);
   font-weight: var(--font-weight-light);
-  font-size: clamp(2.5rem, 7vw, 7rem);
+  font-size: clamp(2.5rem, 5.5vw, 5.5rem);
   line-height: 1;
   text-transform: uppercase;
   color: var(--color-sheet-blue);
@@ -1803,6 +2036,58 @@ body[data-theme="year2024"] .header__avatar-initial {
   .case-sheet__demo--bottom { padding: 30px 0 30px; }
 
   .case-sheet__screenshots { padding: 30px 0 30px; }
+
+  /* Case3 — Phone mockup: flex-start para sangrar pela direita e dar hint de scroll */
+  .case3-phones {
+    padding: 40px 0 0 20px;
+    justify-content: flex-start;
+  }
+
+  .case3-phones img {
+    height: 400px;
+  }
+
+  /* Case3 — Carousel: cards escalam para caber na viewport */
+  .case3-carousel {
+    padding: 30px 0 20px;
+  }
+
+  .case3-carousel__card {
+    width: min(664px, calc(100vw - 40px));
+    height: auto;
+    aspect-ratio: 664 / 878;
+  }
+
+  /* Badges e frames: posição e altura ajustadas para manter respiro proporcional.
+     Badge levemente mais baixo que desktop (14.5% vs 13.28%) para dar espaço ao header.
+     Badge menor (32px) e frame empurrado para 22.5% para garantir gap visível entre os dois. */
+  .case3-card__badge {
+    top: 14.5%;
+    height: 32px;
+  }
+
+  .case3-card__img-frame {
+    top: 22.5%;
+  }
+
+  /* Card 1: height = 94.52% (bottom desktop) - 22.5% (novo top) = 72% */
+  .case3-carousel__card--l1 .case3-card__img-frame {
+    height: 72%;
+  }
+
+  .case3-card__header {
+    padding: 22px 14px 14px;
+    gap: 12px;
+  }
+
+  .case3-card__title {
+    font-size: 1.15rem;
+  }
+
+  .case3-card__subtitle {
+    white-space: normal;
+    font-size: 0.9rem;
+  }
 }
 
 /* =============================================
@@ -1947,6 +2232,60 @@ body[data-theme="year2024"] .header__avatar-initial {
   .case-sheet__demo--bottom { padding: 24px 0 24px; }
 
   .case-sheet__screenshots { padding: 24px 0 24px; }
+
+  /* Case3 — Phone mockup: sangra pela direita para deixar claro que há scroll */
+  .case3-phones {
+    padding: 30px 0 0 20px;
+    justify-content: flex-start;
+  }
+
+  .case3-phones img {
+    height: 340px;
+  }
+
+  /* Case3 — Carousel: ocupa quase 100% da viewport com margens mínimas */
+  .case3-carousel__card {
+    width: calc(100vw - 40px);
+  }
+
+  /* Frame das imagens empurrado para 25% — badge de 30px + gap proporcional ao desktop */
+  .case3-card__img-frame {
+    top: 25%;
+  }
+
+  /* Card 1: height = 94.52% - 25% = 69.52% → 69% */
+  .case3-carousel__card--l1 .case3-card__img-frame {
+    height: 69%;
+  }
+
+  /* Header mais compacto para caber no espaço antes do badge (top: 14.5%) */
+  .case3-card__header {
+    padding: 14px 12px 10px;
+    gap: 8px;
+  }
+
+  .case3-card__title {
+    font-size: 1rem;
+  }
+
+  .case3-card__subtitle {
+    font-size: 0.8rem;
+  }
+
+  .case3-card__badge {
+    height: 30px;
+    padding: 0 10px;
+    font-size: 0.65rem;
+  }
+
+  .case3-carousel__nav {
+    padding: 0 0 14px;
+  }
+
+  .case3-carousel__btn {
+    width: 44px;
+    height: 44px;
+  }
 }
 
 /* Viewport muito pequeno */
@@ -1954,5 +2293,19 @@ body[data-theme="year2024"] .header__avatar-initial {
   .avatar-modal__content {
     width: 220px;
     height: 220px;
+  }
+
+  /* Case3 — header ainda mais compacto para caber acima do badge em telas 320px */
+  .case3-card__header {
+    padding: 10px 10px 8px;
+    gap: 6px;
+  }
+
+  .case3-card__title {
+    font-size: 0.875rem;
+  }
+
+  .case3-card__subtitle {
+    font-size: 0.75rem;
   }
 }
